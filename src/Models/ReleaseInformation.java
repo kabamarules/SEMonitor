@@ -5,113 +5,81 @@ import java.util.Date;
 public class ReleaseInformation {
 
 	/**
-	 * 
+	 * The sequential id of the release
 	 */
-	private Integer id;
+	private int id;
+	
 	/**
-	 * 
+	 * The date of the release
 	 */
 	private Date date;
+	
 	/**
-	 * 
+	 * Change Records for operations and data structures
 	 */
-	private ChangeRecord changeRecord;
+	private ChangeRecord[] changeRecords;
+	
 	/**
-	 * 
+	 * Metrics Records for operations and data structures
 	 */
-	private MetricsRecord metricsRecord;
+	private MetricsRecord[] metricsRecords;
+	
 	/**
-	 * 
-	 * @return 
+	 * Getter of id
 	 */
-	public Integer getId() {
+	public int getId() {
 	 	 return id; 
 	}
+
 	/**
-	 * Setter of id
-	 */
-	public void setId(Integer id) { 
-		 this.id = id; 
-	}
-	/**
-	 * 
-	 * @return 
+	 * Getter of the date
 	 */
 	public Date getDate() {
 	 	 return date; 
 	}
+	
 	/**
-	 * Setter of date
+	 * Getter of the Operation Changes
 	 */
-	public void setDate(Date date) { 
-		 this.date = date; 
-	}
+	public ChangeRecord getOperationChanges() { 
+		return changeRecords[1];
+	 }
+	
 	/**
-	 * Getter of changeRecord
+	 * Getter of the Data Structure Changes
 	 */
-	public ChangeRecord getChangeRecord() {
-	 	 return changeRecord; 
-	}
+	public ChangeRecord getDSChanges() { 
+		return changeRecords[2];
+	 }
+	
 	/**
-	 * Setter of changeRecord
+	 * Getter of the Operation Metrics
 	 */
-	public void setChangeRecord(ChangeRecord changeRecord) { 
-		 this.changeRecord = changeRecord; 
-	}
+	public MetricsRecord getOperationMetrics() { 
+		return metricsRecords[1];
+	 }
+	
 	/**
-	 * Getter of metricsRecord
+	 * Getter of the DSMetrics
 	 */
-	public MetricsRecord getMetricsRecord() {
-	 	 return metricsRecord; 
-	}
+	public MetricsRecord getDSMetrics() { 
+		return metricsRecords[2];
+	 } 
+
 	/**
-	 * Setter of metricsRecord
-	 */
-	public void setMetricsRecord(MetricsRecord metricsRecord) { 
-		 this.metricsRecord = metricsRecord; 
-	}
-	/**
-	 * 
+	 * Constructor
 	 * @param id 
 	 * @param date 
-	 * @param funData 
+	 * @param opData 
 	 * @param dsData 
 	 * @param prDate 
 	 */
-	public ReleaseInformation(Integer id, Date date, Integer funData, Integer dsData, Date prDate) { 
-		// TODO Auto-generated method
-	 }
-	/**
-	 * 
-	 * @return 
-	 */
-	public ChangeRecord getOperationChanges() { 
-		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @return 
-	 */
-	public ChangeRecord getDSChanges() { 
-		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @return 
-	 */
-	public MetricsRecord getOperationMetrics() { 
-		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @return 
-	 */
-	public MetricsRecord getDSMetrics() { 
-		// TODO Auto-generated method
-		return null;
-	 } 
+	public ReleaseInformation(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
+			MetricsRecord opMtRd, MetricsRecord dsMtRd) {
+		changeRecords[1] = opChRd;
+		changeRecords[2] = dsChRd;
+		metricsRecords[1] = opMtRd; 
+		metricsRecords[2] = dsMtRd; 
+	}
 
 }

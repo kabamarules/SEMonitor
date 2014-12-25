@@ -81,6 +81,4 @@ public class ChangeRecord {
 		this.date = dt;
 	 }
 
-
-
 }
