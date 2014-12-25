@@ -11,6 +11,8 @@ Both the design documents and the source code are included in the repo. Unfortun
 
 The requested tool was quite lightweight so the design was base on the [Model-View-Presenter pattern](http://en.wikipedia.org/wiki/Model–view–presenter).
 
+The quality of the design is measured by common metrics as [Coupling Between Object Classes (CBO)](http://www.arisa.se/compendium/node105.html) and [Response for a Class (RFC)](http://www.arisa.se/compendium/node98.html).
+
 The documenation includes the following:
 * Requirements Definition (given by the tutor)
 * Requirements Specification
@@ -19,6 +21,14 @@ The documenation includes the following:
 Also there are included the packet, class and sequence diagrams that where designe with [Eclipse's](http://eclipse.org) plugin [Papyrus](http://eclipse.org/papyrus/).
 
 ## Prototype
+
+### Main Menu
+
+![main gui](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/gui%20prototype/prototype-main.png)
+
+### Lehman's law evaluation
+
+![laws gui](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/gui%20prototype/prototype-laws.png)
 
 ## Package Diagram
 ![packages diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/Packages.png)
