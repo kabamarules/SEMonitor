@@ -19,7 +19,12 @@ public class ReleaseHistory {
 	/**
 	 * The holder of the laws validity and comments
 	 */
-	private LehmanLawsRecord laws;
+	private LehmanLawsRecord[] laws;
+
+	/**
+	 * The total number of Lehman's laws
+	 */
+	private int numOfLaws = 8;
 	
 	/**
 	 * Constructor
@@ -27,6 +32,8 @@ public class ReleaseHistory {
 	 */
 	public ReleaseHistory(String name) { 
 		this.name = name;
+		releases = new ArrayList<ReleaseInformation>();
+		laws = new LehmanLawsRecord[numOfLaws];
 	 }
 	
 	/**
@@ -47,7 +54,7 @@ public class ReleaseHistory {
 	 * @param prDate 
 	 */
 	public void addRelease(int id, Date date, int[] opData, int[] dsData, int opPrTot, int dsPrTot, Date prDate) { 
-
+		
 	}
 	
 	/**
@@ -74,34 +81,35 @@ public class ReleaseHistory {
 	 * @param validity 
 	 * @param comment 
 	 */
-	public void setLawEvaluation(int lawNumber, boolean validity, String comment) { 
-		// TODO Auto-generated method
+	public void setLawEvaluation(int lawNumber, boolean validity, String comment) throws ArrayIndexOutOfBoundsException {
+		if (lawNumber >=0 && lawNumber < numOfLaws ) {
+			laws[lawNumber].setValidity(validity);
+			laws[lawNumber].setComment(comment);;
+		} else {
+			throw new ArrayIndexOutOfBoundsException(lawNumber);
+		}
 	 }
 	
 	/**
 	 * Gets the validity of a specific law
 	 * @param lawNumber 
-	 * @return 
 	 */
 	public boolean getLawValidity(int lawNumber) { 
-		// TODO Auto-generated method
-		return false;
+		return laws[lawNumber].getValidity();
 	 }
 	
 	/**
 	 * Gets the comment of a specific law 
 	 * @param lawNumber 
-	 * @return 
 	 */
 	public String getLawComment(int lawNumber) { 
-		// TODO Auto-generated method
-		return null;
+		return laws[lawNumber].getComment();
 	 }
 	
 	/**
 	 * Getter of all the laws
 	 */
-	public LehmanLawsRecord getLaws() {
+	public LehmanLawsRecord[] getLaws() {
 	 	 return laws; 
 	}
 	
