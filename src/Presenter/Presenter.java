@@ -8,6 +8,7 @@ import java.awt.EventQueue;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import Views.MainView;
 import Views.LawView;
@@ -170,7 +171,27 @@ public class Presenter {
 	 * Create the main window.
 	 */
 	public Presenter() {
-		initialize();
+		initializeFrame();
+		lawView = new LawView(this);
+		frmSEMonitor.getContentPane().add(lawView);
+		lawView.hide();
+		
+		mainView = new MainView(this);
+		frmSEMonitor.getContentPane().add(mainView);
+		//mainView.show();
+	}
+	
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initializeFrame() {
+		frmSEMonitor = new JFrame();
+		frmSEMonitor.setTitle("Software Evolution Monitor Tool");
+		frmSEMonitor.setSize(new Dimension(640, 480));
+		frmSEMonitor.setResizable(false);
+		frmSEMonitor.getContentPane().setBackground(new Color(0, 0, 64));
+		frmSEMonitor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSEMonitor.getContentPane().setLayout(null);
 	}
 	
 	/**
@@ -187,19 +208,6 @@ public class Presenter {
 				}
 			}
 		});
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmSEMonitor = new JFrame();
-		frmSEMonitor.setTitle("Software Evolution Monitor Tool");
-		frmSEMonitor.setSize(new Dimension(640, 480));
-		frmSEMonitor.setResizable(false);
-		frmSEMonitor.getContentPane().setBackground(new Color(0, 0, 64));
-		frmSEMonitor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmSEMonitor.getContentPane().setLayout(null);
 	}
 
 }
