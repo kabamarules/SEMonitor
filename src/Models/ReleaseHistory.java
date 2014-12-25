@@ -7,75 +7,52 @@ import java.util.Date;
 public class ReleaseHistory {
 
 	/**
-	 * 
+	 * The name of the software system
 	 */
 	private String name;
+	
 	/**
-	 * 
+	 * The list of the release
 	 */
 	private List<ReleaseInformation> releases;
+	
 	/**
-	 * 
+	 * The holder of the laws validity and comments
 	 */
 	private LehmanLawsRecord laws;
+	
 	/**
-	 * 
-	 * @return 
-	 */
-	public String getName() {
-	 	 return name; 
-	}
-	/**
-	 * Setter of name
-	 */
-	public void setName(String name) { 
-		 this.name = name; 
-	}
-	/**
-	 * 
-	 * @return 
-	 */
-	public List<ReleaseInformation> getReleases() {
-	 	 return releases; 
-	}
-	/**
-	 * Setter of releases
-	 */
-	public void setReleases(List<ReleaseInformation> releases) { 
-		 this.releases = releases; 
-	}
-	/**
-	 * Getter of laws
-	 */
-	public LehmanLawsRecord getLaws() {
-	 	 return laws; 
-	}
-	/**
-	 * Setter of laws
-	 */
-	public void setLaws(LehmanLawsRecord laws) { 
-		 this.laws = laws; 
-	}
-	/**
-	 * 
+	 * Constructor
 	 * @param name 
 	 */
 	public ReleaseHistory(String name) { 
 		this.name = name;
 	 }
+	
 	/**
-	 * 
-	 * @param id 
-	 * @param date 
-	 * @param funData 
-	 * @param dsData 
+	 * Getter of the name
+	 */
+	public String getName() {
+	 	 return name; 
+	}
+	
+	/**
+	 * Adding a release to the history
+	 * @param id Release Id
+	 * @param date Release Date
+	 * @param opData Operations Additions/deletions/changes
+	 * @param dsData Data structures Additions/deletions/changes
+	 * @param opPrTot Previous total of operations
+	 * @param dsPrTot Previous total of data structures
 	 * @param prDate 
 	 */
-	public void addRelease(int id, Date date, int funData, int dsData, Date prDate) { 
-		// TODO Auto-generated method
-	 }
+	public void addRelease(int id, Date date, int[] opData, int[] dsData, int opPrTot, int dsPrTot, Date prDate) { 
+
+	}
+	
 	/**
-	 * 
+	 * Gets a release by id.
+	 * Initial release has id 0.
 	 * @param releaseID 
 	 * @return 
 	 */
@@ -83,26 +60,36 @@ public class ReleaseHistory {
 		// TODO Auto-generated method
 		return null;
 	 }
+	
 	/**
-	 * 
+	 * Getter of all the releases
+	 */
+	public List<ReleaseInformation> getReleases() {
+	 	 return releases; 
+	}
+	
+	/**
+	 * Sets the evaluation and comment of a specific law.
 	 * @param lawNumber 
 	 * @param validity 
 	 * @param comment 
 	 */
-	public void setLawEvaluation(int lawNumber, Boolean validity, String comment) { 
+	public void setLawEvaluation(int lawNumber, boolean validity, String comment) { 
 		// TODO Auto-generated method
 	 }
+	
 	/**
-	 * 
+	 * Gets the validity of a specific law
 	 * @param lawNumber 
 	 * @return 
 	 */
-	public Boolean getLawValidity(int lawNumber) { 
+	public boolean getLawValidity(int lawNumber) { 
 		// TODO Auto-generated method
-		return null;
+		return false;
 	 }
+	
 	/**
-	 * 
+	 * Gets the comment of a specific law 
 	 * @param lawNumber 
 	 * @return 
 	 */
@@ -110,8 +97,17 @@ public class ReleaseHistory {
 		// TODO Auto-generated method
 		return null;
 	 }
+	
 	/**
-	 * 
+	 * Getter of all the laws
+	 */
+	public LehmanLawsRecord getLaws() {
+	 	 return laws; 
+	}
+	
+	/**
+	 * Gets the graph data for a law.
+	 * The return value might be of different dimensionality according to the law number.
 	 * @param lawNumber 
 	 * @return 
 	 */
@@ -119,74 +115,89 @@ public class ReleaseHistory {
 		// TODO Auto-generated method
 		return 0;
 	 }
+	
 	/**
-	 * 
-	 * @param opOrDs 
+	 * Returns the data for the changes graph.
+	 * Used in Law 1.
+	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getComplexityData(Boolean opOrDs) { 
+	private List<Double> getChangesData(boolean opOrDs) { 
 		// TODO Auto-generated method
 		return null;
 	 }
+	
 	/**
-	 * 
-	 * @param opOrDs 
+	 * Returns the versions per year data.
+	 * Used in Law 1
 	 * @return 
 	 */
-	public List<Double> getChangesData(Boolean opOrDs) { 
+	private List<Double> getVersionsPerYearData() { 
 		// TODO Auto-generated method
 		return null;
 	 }
+	
 	/**
-	 * 
+	 * Returns the data for the complexity graph.
+	 * Used in Law 2.
+	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getMaintananceActionsData() { 
+	private List<Double> getComplexityData(boolean opOrDs) { 
 		// TODO Auto-generated method
 		return null;
 	 }
+	
 	/**
-	 * 
+	 * Returns the data for the maintenance actions graph.
+	 * Used in Law 2.
 	 * @return 
 	 */
-	public List<Double> getVersionsPerYearData() { 
+	private List<Double> getMaintananceActionsData() { 
 		// TODO Auto-generated method
 		return null;
 	 }
+	
 	/**
-	 * 
-	 * @param opOrDs 
+	 * Returns the growth graph data.
+	 * Used in Laws 3 & 5.
+	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public double getGrowthData(Boolean opOrDs) { 
+	private double getGrowthData(boolean opOrDs) { 
 		// TODO Auto-generated method
 		return 0;
 	 }
+	
 	/**
-	 * 
-	 * @param opOrDs 
+	 * Returns the work rate graph data.
+	 * Used in Law 4.
+	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public double getWorkRateData(boolean opOrDs) { 
+	private double getWorkRateData(boolean opOrDs) { 
 		// TODO Auto-generated method
 		return 0;
 	 }
+	
 	/**
-	 * 
-	 * @param opOrDs 
+	 * Returns the total number graph data.
+	 * Used in Law 6.
+	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public double getNumberData(boolean opOrDs) { 
+	private double getNumberData(boolean opOrDs) { 
 		// TODO Auto-generated method
 		return 0;
 	 }
+	
 	/**
-	 * 
+	 * Returns the number of operations estimations graph data.
+	 * Used in Law 8.
 	 * @return 
 	 */
-	public List<Double> getNumOpEstData() { 
+	private List<Double> getNumOpEstData() { 
 		// TODO Auto-generated method
 		return null;
 	 } 
-
 }
