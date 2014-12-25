@@ -3,37 +3,33 @@ package Models;
 public class LehmanLawsRecord {
 
 	/**
-	 * 
+	 * Holds the validity of the law
 	 */
-	private Boolean validity;
+	private boolean validity;
 	/**
-	 * 
+	 * Holds the comment for the law
 	 */
 	private String comment;
 	/**
-	 * 
-	 * @return 
+	 * Validity getter
 	 */
-	public Boolean getValidity() {
+	public boolean getValidity() {
 	 	 return validity; 
 	}
 	/**
-	 * 
-	 * @param validity 
+	 * Validity setter
 	 */
-	public void setValidity(Boolean validity) { 
+	public void setValidity(boolean validity) { 
 		 this.validity = validity; 
 	}
 	/**
-	 * 
-	 * @return 
+	 * Comment getter
 	 */
 	public String getComment() {
 	 	 return comment; 
 	}
 	/**
-	 * 
-	 * @param comment 
+	 * Comment setter
 	 */
 	public void setComment(String comment) { 
 		 this.comment = comment; 
@@ -41,12 +37,13 @@ public class LehmanLawsRecord {
 
 
 	/**
-	 * 
+	 * Constructor
 	 * @param validity 
 	 * @param comment 
 	 */
-	public void LehmanLawsRecord(Boolean validity, String comment) { 
-		// TODO Auto-generated method
+	public LehmanLawsRecord(boolean validity, String comment) { 
+		this.validity = validity;
+		this.comment = comment;
 	 } 
 
 }
