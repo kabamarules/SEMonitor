@@ -78,7 +78,7 @@ public class ReleaseInformation {
 	 * @param dsData 
 	 * @param prDate 
 	 */
-	public void ReleaseInformation(Integer id, Date date, Integer funData, Integer dsData, Date prDate) { 
+	public ReleaseInformation(Integer id, Date date, Integer funData, Integer dsData, Date prDate) { 
 		// TODO Auto-generated method
 	 }
 	/**
