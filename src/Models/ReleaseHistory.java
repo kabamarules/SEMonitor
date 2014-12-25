@@ -60,8 +60,8 @@ public class ReleaseHistory {
 	 * 
 	 * @param name 
 	 */
-	public void ReleaseHistory(String name) { 
-		// TODO Auto-generated method
+	public ReleaseHistory(String name) { 
+		this.name = name;
 	 }
 	/**
 	 * 
@@ -71,7 +71,7 @@ public class ReleaseHistory {
 	 * @param dsData 
 	 * @param prDate 
 	 */
-	public void addRelease(Integer id, Date date, Integer funData, Integer dsData, Date prDate) { 
+	public void addRelease(int id, Date date, int funData, int dsData, Date prDate) { 
 		// TODO Auto-generated method
 	 }
 	/**
@@ -79,7 +79,7 @@ public class ReleaseHistory {
 	 * @param releaseID 
 	 * @return 
 	 */
-	public List<ReleaseInformation> getRelease(Integer releaseID) { 
+	public List<ReleaseInformation> getRelease(int releaseID) { 
 		// TODO Auto-generated method
 		return null;
 	 }
@@ -89,7 +89,7 @@ public class ReleaseHistory {
 	 * @param validity 
 	 * @param comment 
 	 */
-	public void setLawEvaluation(Integer lawNumber, Boolean validity, String comment) { 
+	public void setLawEvaluation(int lawNumber, Boolean validity, String comment) { 
 		// TODO Auto-generated method
 	 }
 	/**
@@ -97,16 +97,7 @@ public class ReleaseHistory {
 	 * @param lawNumber 
 	 * @return 
 	 */
-	public Boolean getLawValidity(Integer lawNumber) { 
-		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @param lawNumber 
-	 * @return 
-	 */
-	public String getLawComment(Integer lawNumber) { 
+	public Boolean getLawValidity(int lawNumber) { 
 		// TODO Auto-generated method
 		return null;
 	 }
@@ -115,7 +106,25 @@ public class ReleaseHistory {
 	 * @param lawNumber 
 	 * @return 
 	 */
-	public Double getLawGraphData(Integer lawNumber) { 
+	public String getLawComment(int lawNumber) { 
+		// TODO Auto-generated method
+		return null;
+	 }
+	/**
+	 * 
+	 * @param lawNumber 
+	 * @return 
+	 */
+	public double getLawGraphData(int lawNumber) { 
+		// TODO Auto-generated method
+		return 0;
+	 }
+	/**
+	 * 
+	 * @param opOrDs 
+	 * @return 
+	 */
+	public List<Double> getComplexityData(Boolean opOrDs) { 
 		// TODO Auto-generated method
 		return null;
 	 }
@@ -124,7 +133,23 @@ public class ReleaseHistory {
 	 * @param opOrDs 
 	 * @return 
 	 */
-	private List<Double> getComplexityData(Boolean opOrDs) { 
+	public List<Double> getChangesData(Boolean opOrDs) { 
+		// TODO Auto-generated method
+		return null;
+	 }
+	/**
+	 * 
+	 * @return 
+	 */
+	public List<Double> getMaintananceActionsData() { 
+		// TODO Auto-generated method
+		return null;
+	 }
+	/**
+	 * 
+	 * @return 
+	 */
+	public List<Double> getVersionsPerYearData() { 
 		// TODO Auto-generated method
 		return null;
 	 }
@@ -133,58 +158,33 @@ public class ReleaseHistory {
 	 * @param opOrDs 
 	 * @return 
 	 */
-	private List<Double> getChangesData(Boolean opOrDs) { 
+	public double getGrowthData(Boolean opOrDs) { 
 		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @return 
-	 */
-	private List<Double> getMaintananceActionsData() { 
-		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @return 
-	 */
-	private List<Double> getVersionsPerYearData() { 
-		// TODO Auto-generated method
-		return null;
+		return 0;
 	 }
 	/**
 	 * 
 	 * @param opOrDs 
 	 * @return 
 	 */
-	private Double getGrowthData(Boolean opOrDs) { 
+	public double getWorkRateData(boolean opOrDs) { 
 		// TODO Auto-generated method
-		return null;
+		return 0;
 	 }
 	/**
 	 * 
 	 * @param opOrDs 
 	 * @return 
 	 */
-	private Double getWorkRateData(Boolean opOrDs) { 
+	public double getNumberData(boolean opOrDs) { 
 		// TODO Auto-generated method
-		return null;
-	 }
-	/**
-	 * 
-	 * @param opOrDs 
-	 * @return 
-	 */
-	private Double getNumberData(Boolean opOrDs) { 
-		// TODO Auto-generated method
-		return null;
+		return 0;
 	 }
 	/**
 	 * 
 	 * @return 
 	 */
-	private List<Double> getNumOpEstData() { 
+	public List<Double> getNumOpEstData() { 
 		// TODO Auto-generated method
 		return null;
 	 } 
