@@ -54,7 +54,7 @@ public class ReleaseHistory {
 	 * @param prDate 
 	 */
 	public void addRelease(int id, Date date, int[] opData, int[] dsData, int opPrTot, int dsPrTot, Date prDate) { 
-		
+		// TODO Auto-generated method
 	}
 	
 	/**
@@ -63,9 +63,8 @@ public class ReleaseHistory {
 	 * @param releaseID 
 	 * @return 
 	 */
-	public List<ReleaseInformation> getRelease(int releaseID) { 
-		// TODO Auto-generated method
-		return null;
+	public ReleaseInformation getReleaseInformation(int releaseID) { 
+		return releases.get(releaseID);
 	 }
 	
 	/**
