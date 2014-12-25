@@ -53,6 +53,48 @@ public class MetricsRecord {
 	public void setPreviousDate(Date previousDate) { 
 		 this.previousDate = previousDate; 
 	}
+
+	/**
+	 * Return the total number of changes up to now
+	 * @return 
+	 */
+	public int getTotalNumber() { 
+		return previousTotal + changeRecord.getAdditions() - changeRecord.getDeletions();
+	 }
+	
+	/**
+	 * Returns the growth rate of changes for the current release
+	 * @return 
+	 */
+	public int getGrowthRate() { 
+		return changeRecord.getAdditions() - changeRecord.getDeletions();
+	 }
+	
+	/**
+	 * Returns the complexity of the current release
+	 * @return 
+	 */
+	public double getComplexity() { 
+		return ((double)changeRecord.getChanges() + (double)changeRecord.getDeletions())/(double)changeRecord.getAdditions();
+	 }
+	
+	/**
+	 * Returns the task rate of the current release
+	 * @return 
+	 */
+	public double getTaskRate() { 
+		double allChanges = (double)(changeRecord.getChanges() + changeRecord.getDeletions() + changeRecord.getAdditions());
+		return allChanges / getTimeSinceLastRelease();
+	 }
+	
+	/**
+	 * Returns the elapsed time in days since the last release
+	 */
+	private double getTimeSinceLastRelease() { 
+        double diff = previousDate.getTime() - changeRecord.getDate().getTime();
+        return diff / 1000.0 / 60.0 / 60.0 / 24.0;
+	 } 
+
 	/**
 	 * Constructor
 	 * @param cr ChangeRecord
@@ -64,41 +106,4 @@ public class MetricsRecord {
 		this.previousTotal = prTot;
 		this.previousDate = prDate;
 	 }
-	/**
-	 * Return the total number of changes up to now
-	 * @return 
-	 */
-	public int getTotalNumber() { 
-		return previousTotal + changeRecord.getAdditions() - changeRecord.getDeletions();
-	 }
-	/**
-	 * Returns the growth rate of changes for the current release
-	 * @return 
-	 */
-	public int getGrowthRate() { 
-		return changeRecord.getAdditions() - changeRecord.getDeletions();
-	 }
-	/**
-	 * Returns the complexity of the current release
-	 * @return 
-	 */
-	public double getComplexity() { 
-		return ((double)changeRecord.getChanges() + (double)changeRecord.getDeletions())/(double)changeRecord.getAdditions();
-	 }
-	/**
-	 * Returns the task rate of the current release
-	 * @return 
-	 */
-	public double getTaskRate() { 
-		double allChanges = (double)(changeRecord.getChanges() + changeRecord.getDeletions() + changeRecord.getAdditions());
-		return allChanges / getTimeSinceLastRelease();
-	 }
-	/**
-	 * Returns the elapsed time in days since the last release
-	 */
-	private double getTimeSinceLastRelease() { 
-        double diff = previousDate.getTime() - changeRecord.getDate().getTime();
-        return diff / 1000.0 / 60.0 / 60.0 / 24.0;
-	 } 
-
 }
