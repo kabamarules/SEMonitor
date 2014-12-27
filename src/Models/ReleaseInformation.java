@@ -34,10 +34,13 @@ public class ReleaseInformation {
 	 */
 	public ReleaseInformation(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
 			MetricsRecord opMtRd, MetricsRecord dsMtRd) {
-		changeRecords[1] = opChRd;
-		changeRecords[2] = dsChRd;
-		metricsRecords[1] = opMtRd; 
-		metricsRecords[2] = dsMtRd; 
+		changeRecords = new ChangeRecord[2];
+		metricsRecords = new MetricsRecord[2];
+		
+		changeRecords[0] = opChRd;
+		changeRecords[1] = dsChRd;
+		metricsRecords[0] = opMtRd; 
+		metricsRecords[1] = dsMtRd; 
 	}
 	
 	/**
@@ -58,28 +61,28 @@ public class ReleaseInformation {
 	 * Getter of the Operation Changes
 	 */
 	public ChangeRecord getOperationChanges() { 
-		return changeRecords[1];
+		return changeRecords[0];
 	 }
 	
 	/**
 	 * Getter of the Data Structure Changes
 	 */
 	public ChangeRecord getDSChanges() { 
-		return changeRecords[2];
+		return changeRecords[1];
 	 }
 	
 	/**
 	 * Getter of the Operation Metrics
 	 */
 	public MetricsRecord getOperationMetrics() { 
-		return metricsRecords[1];
+		return metricsRecords[0];
 	 }
 	
 	/**
 	 * Getter of the DSMetrics
 	 */
 	public MetricsRecord getDSMetrics() { 
-		return metricsRecords[2];
+		return metricsRecords[1];
 	 } 
 
 }
