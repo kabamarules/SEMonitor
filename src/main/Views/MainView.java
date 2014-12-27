@@ -3,8 +3,10 @@ package Views;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -23,30 +25,25 @@ public class MainView extends View {
 	/**
 	 * The names list of the loaded software systems data 
 	 */
-	private List<String> rhNames;
+	private DefaultListModel rhNames;
 
-	/**
-	 * Setter of release history names
-	 */
-	public void setNames(List<String> rhNames) { 
-		 this.rhNames = rhNames; 
+	public void addRH(String name) { 
+		 rhNames.addElement(name);
 	}
 
-	/**
-	 * Setter of law validities
-	 * @param validities 
-	 */
 	public void setLawsValidity(Boolean validities) { 
 		// TODO Auto-generated method
 	 }
 
 	@Override
 	public void redraw() {
-		// TODO Auto-generated method stub
+		
 	} 
 
 	public MainView(Presenter callbackPresenter) {
 		super(callbackPresenter);
+		rhNames = new DefaultListModel();
+		
 		initializeView();
 	}
 	
@@ -157,33 +154,23 @@ public class MainView extends View {
 		SoftwareToolsListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		SoftwareToolsListScrollPane.setBounds(26, 74, 222, 261);
 	
-		JList SoftwareToolsList = new JList();
+		JList SoftwareToolsList = new JList(rhNames);
 		SoftwareToolsList.setVisibleRowCount(100);
-		
-//		SoftwareToolsList.setModel(new AbstractListModel() {
-//			String[] values = new String[] {"Calc iOS Application", "Bitcoin miner", "A random Software Tool "};
-//			public int getSize() {
-//				return values.length;
-//			}
-//			public Object getElementAt(int index) {
-//				return values[index];
-//			}
-//		});
-		
 		SoftwareToolsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
 		SoftwareToolsListScrollPane.setColumnHeaderView(SoftwareToolsList);
 		add(SoftwareToolsListScrollPane);
 
-		JLabel lblSystems = new JLabel("Συστήματα Λογισμικού");
+		JLabel lblSystems = new JLabel("Ιστορικά Συστημ. Λογ.");
 		lblSystems.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSystems.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblSystems.setAlignmentX(0.5f);
 		lblSystems.setBounds(26, 34, 222, 34);
 		add(lblSystems);
 		
-		JButton btnNewSystem = new JButton("Νέο Σύστημα");
+		JButton btnNewSystem = new JButton("Νέο Ιστορικό");
 		btnNewSystem.setFocusPainted(false);
-		btnNewSystem.setActionCommand("newSystem");
+		btnNewSystem.setActionCommand("newRH");
 		btnNewSystem.setBounds(23, 347, 225, 29);
 		add(btnNewSystem);
 		
@@ -197,5 +184,6 @@ public class MainView extends View {
 		btnLaw7.addActionListener(callbackPresenter);
 		btnLaw8.addActionListener(callbackPresenter);
 		btnReport.addActionListener(callbackPresenter);
+		SoftwareToolsList.addListSelectionListener(callbackPresenter);
 	}
 }

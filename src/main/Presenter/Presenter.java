@@ -7,124 +7,73 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import Views.MainView;
 import Views.LawView;
 import IO.RHParser;
 
-public class Presenter implements ActionListener{
+public class Presenter implements ActionListener, ListSelectionListener{
 
 	/** 
 	 * Main window frame to hold the views
 	 */
 	private JFrame frmSEMonitor;
 
-	/**
-	 * 
-	 */
 	private List<ReleaseHistory> releaseHistories;
-	/**
-	 * 
-	 */
-	private Integer selectedRH;
-	/**
-	 * 
-	 */
-	private Integer selectedLaw;
-	/**
-	 * 
-	 */
+	private int selectedRH;
+	private int selectedLaw;
 	private MainView mainView;
-	/**
-	 * 
-	 */
 	private LawView lawView;
-	/**
-	 * 
-	 */
-	private RHParser inputParser;
-	/**
-	 * Getter of releaseHistories
-	 */
+	
 	public List<ReleaseHistory> getReleaseHistories() {
 	 	 return releaseHistories; 
 	}
-	/**
-	 * Setter of releaseHistories
-	 */
+	
 	public void setReleaseHistories(List<ReleaseHistory> releaseHistories) { 
 		 this.releaseHistories = releaseHistories; 
 	}
-	/**
-	 * Getter of selectedRH
-	 */
+	
 	public Integer getSelectedRH() {
 	 	 return selectedRH; 
 	}
-	/**
-	 * Setter of selectedRH
-	 */
+	
 	public void setSelectedRH(Integer selectedRH) { 
 		 this.selectedRH = selectedRH; 
 	}
-	/**
-	 * Getter of selectedLaw
-	 */
+	
 	public Integer getSelectedLaw() {
 	 	 return selectedLaw; 
 	}
-	/**
-	 * Setter of selectedLaw
-	 */
+	
 	public void setSelectedLaw(Integer selectedLaw) { 
 		 this.selectedLaw = selectedLaw; 
 	}
-	/**
-	 * Getter of mainView
-	 */
-	public MainView getMainView() {
-	 	 return mainView; 
-	}
-	/**
-	 * Setter of mainView
-	 */
-	public void setMainView(MainView mainView) { 
-		 this.mainView = mainView; 
-	}
-	/**
-	 * Getter of lawView
-	 */
-	public LawView getLawView() {
-	 	 return lawView; 
-	}
-	/**
-	 * Setter of lawView
-	 */
-	public void setLawView(LawView lawView) { 
-		 this.lawView = lawView; 
-	}
-	/**
-	 * Getter of inputParser
-	 */
-	public RHParser getInputParser() {
-	 	 return inputParser; 
-	}
-	/**
-	 * Setter of inputParser
-	 */
-	public void setInputParser(RHParser inputParser) { 
-		 this.inputParser = inputParser; 
-	}
-	/**
-	 * 
-	 * @param filename 
-	 */
-	public void createNewHistory(String filename) { 
-		// TODO Auto-generated method
+
+	void createNewRH() { 
+	      JFileChooser c = new JFileChooser();
+	      int rVal = c.showOpenDialog(mainView);
+	      
+	      if (rVal == JFileChooser.APPROVE_OPTION) {
+	    	  String file = c.getSelectedFile().getAbsolutePath();
+	    	  
+	    	  try {
+				ReleaseHistory rh = RHParser.getReleaseHistory(file);
+				releaseHistories.add(rh);
+				mainView.addRH(rh.getName());
+				mainView.redraw();
+			} catch (Exception e) {
+				infoBox("Error", "Could not parse the file.");
+				e.printStackTrace();
+			}
+	      }
 	 }
 	/**
 	 * 
@@ -173,6 +122,8 @@ public class Presenter implements ActionListener{
 	 * Create the main window.
 	 */
 	public Presenter() {
+		releaseHistories = new ArrayList<ReleaseHistory>();
+		
 		initializeFrame();
 		lawView = new LawView(this);
 		frmSEMonitor.getContentPane().add(lawView);
@@ -212,15 +163,34 @@ public class Presenter implements ActionListener{
 		});
 	}
 	
+	/**
+	 * Called when a button is pressed
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Presenter.infoBox(e.getActionCommand());
+		switch(e.getActionCommand()) {
+			case "newRH":
+				createNewRH();
+				break;
+			default: 
+				infoBox("Triggered Action", e.getActionCommand());
+		}
 	}
 	
-	public static void infoBox(String infoMessage)
+	/** 
+	 * Called when a Release History is selected from the list
+	 */
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		System.out.println(e.getSource());
+	}
+	
+	public static void infoBox(String label, String message)
     {
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, label, JOptionPane.INFORMATION_MESSAGE);
     }
+
+
 
 
 }
