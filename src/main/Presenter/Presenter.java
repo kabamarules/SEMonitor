@@ -20,7 +20,7 @@ import Views.MainView;
 import Views.LawView;
 import IO.RHParser;
 
-public class Presenter implements ActionListener, ListSelectionListener{
+public class Presenter{
 
 	/** 
 	 * Main window frame to hold the views
@@ -45,7 +45,7 @@ public class Presenter implements ActionListener, ListSelectionListener{
 	 	 return selectedRH; 
 	}
 	
-	public void setSelectedRH(Integer selectedRH) { 
+	public void setSelectedRH(int selectedRH) { 
 		 this.selectedRH = selectedRH; 
 	}
 	
@@ -57,7 +57,7 @@ public class Presenter implements ActionListener, ListSelectionListener{
 		 this.selectedLaw = selectedLaw; 
 	}
 
-	void createNewRH() { 
+	public void createNewRH() { 
 	      JFileChooser c = new JFileChooser();
 	      int rVal = c.showOpenDialog(mainView);
 	      
@@ -68,7 +68,6 @@ public class Presenter implements ActionListener, ListSelectionListener{
 				ReleaseHistory rh = RHParser.getReleaseHistory(file);
 				releaseHistories.add(rh);
 				mainView.addRH(rh.getName());
-				mainView.redraw();
 			} catch (Exception e) {
 				infoBox("Error", "Could not parse the file.");
 				e.printStackTrace();
@@ -81,6 +80,7 @@ public class Presenter implements ActionListener, ListSelectionListener{
 	 }
 
 	public void evaluateLaw(int lawIndex) {
+		System.out.println(lawIndex);
 		mainView.hide();
 		lawView.show();
 	}
@@ -145,67 +145,6 @@ public class Presenter implements ActionListener, ListSelectionListener{
 				}
 			}
 		});
-	}
-	
-	/**
-	 * Called when a button is pressed
-	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch(e.getActionCommand()) {
-			case "newRH":
-				createNewRH();
-				break;
-			case "law1":
-				selectedLaw = 1;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law2":
-				selectedLaw = 2;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law3":
-				selectedLaw = 3;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law4":
-				selectedLaw = 4;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law5":
-				selectedLaw = 5;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law6":
-				selectedLaw = 6;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law7":
-				selectedLaw = 7;
-				evaluateLaw(selectedLaw);
-				break;
-			case "law8":
-				selectedLaw = 8;
-				evaluateLaw(selectedLaw);
-				break;
-			case "createReport":
-			case "saveEvaluation":
-			case "goBack":
-				gotoBackToMainView();
-				break;
-            default: 
-            	infoBox("Triggered Action", e.getActionCommand());
-		}
-	}
-	
-	/** 
-	 * Called when a Release History is selected from the list
-	 */
-	@Override
-	public void valueChanged(ListSelectionEvent e) {
-		if (e.getValueIsAdjusting() == false) {
-			selectedRH = e.getLastIndex();
-		}
 	}
 	
 	public static void infoBox(String label, String message)

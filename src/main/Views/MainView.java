@@ -3,6 +3,8 @@ package Views;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +18,13 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import Presenter.Presenter;
 
 @SuppressWarnings("serial")
-public class MainView extends View {
+public class MainView extends View implements ActionListener, ListSelectionListener{
 
 	/**
 	 * The names list of the loaded software systems data 
@@ -45,6 +49,55 @@ public class MainView extends View {
 		rhNames = new DefaultListModel();
 		
 		initializeView();
+	}
+	
+	/**
+	 * Called when a button is pressed
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch(e.getActionCommand()) {
+			case "newRH":
+				callbackPresenter.createNewRH();
+				break;
+			case "law1":
+				callbackPresenter.evaluateLaw(1);
+				break;
+			case "law2":
+				callbackPresenter.evaluateLaw(2);
+				break;
+			case "law3":
+				callbackPresenter.evaluateLaw(3);
+				break;
+			case "law4":
+				callbackPresenter.evaluateLaw(4);
+				break;
+			case "law5":
+				callbackPresenter.evaluateLaw(5);
+				break;
+			case "law6":
+				callbackPresenter.evaluateLaw(6);
+				break;
+			case "law7":
+				callbackPresenter.evaluateLaw(7);
+				break;
+			case "law8":
+				callbackPresenter.evaluateLaw(8);
+				break;
+			case "createReport":
+            default: 
+            	Presenter.infoBox("Triggered Action", e.getActionCommand());
+		}
+	}
+	
+	/** 
+	 * Called when a Release History is selected from the list
+	 */
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		if (e.getValueIsAdjusting() == false) {
+			callbackPresenter.setSelectedRH(e.getLastIndex());
+		}
 	}
 	
 	private void initializeView() {
@@ -95,7 +148,7 @@ public class MainView extends View {
 		
 		JButton btnLaw8 = new JButton("8ος Νόμος");
 		btnLaw8.setBounds(135, 169, 112, 29);
-		btnLaw7.setActionCommand("law8");
+		btnLaw8.setActionCommand("law8");
 		MainButtonsPanel.add(btnLaw8);
 		
 		JButton btnReport = new JButton("Δημιουργία Αναφοράς");
@@ -174,16 +227,16 @@ public class MainView extends View {
 		btnNewSystem.setBounds(23, 347, 225, 29);
 		add(btnNewSystem);
 		
-		btnNewSystem.addActionListener(callbackPresenter);
-		btnLaw1.addActionListener(callbackPresenter);
-		btnLaw2.addActionListener(callbackPresenter);
-		btnLaw3.addActionListener(callbackPresenter);
-		btnLaw4.addActionListener(callbackPresenter);
-		btnLaw5.addActionListener(callbackPresenter);
-		btnLaw6.addActionListener(callbackPresenter);
-		btnLaw7.addActionListener(callbackPresenter);
-		btnLaw8.addActionListener(callbackPresenter);
-		btnReport.addActionListener(callbackPresenter);
-		SoftwareToolsList.addListSelectionListener(callbackPresenter);
+		btnNewSystem.addActionListener(this);
+		btnLaw1.addActionListener(this);
+		btnLaw2.addActionListener(this);
+		btnLaw3.addActionListener(this);
+		btnLaw4.addActionListener(this);
+		btnLaw5.addActionListener(this);
+		btnLaw6.addActionListener(this);
+		btnLaw7.addActionListener(this);
+		btnLaw8.addActionListener(this);
+		btnReport.addActionListener(this);
+		SoftwareToolsList.addListSelectionListener(this);
 	}
 }

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -15,7 +16,7 @@ import javax.swing.JTextPane;
 
 import Presenter.Presenter;
 
-public class LawView extends View {
+public class LawView extends View implements ActionListener {
 	
 	/**
 	 * The number of the selected law
@@ -111,6 +112,10 @@ public class LawView extends View {
 		radioBtnLawTrue.setBounds(323, 203, 107, 23);
 		add(radioBtnLawTrue);
 		
+		ButtonGroup group = new ButtonGroup();
+	    group.add(radioBtnLawTrue);
+	    group.add(radioBtnLawFalse);
+	    
 		JTextPane txtUserComments = new JTextPane();
 		txtUserComments.setBackground(Color.WHITE);
 		txtUserComments.setBounds(313, 274, 265, 114);
@@ -130,8 +135,23 @@ public class LawView extends View {
 		btnBack.setActionCommand("goBack");
 		add(btnBack);
 		
-		btnBack.addActionListener(callbackPresenter);
-		btnApotimisi.addActionListener(callbackPresenter);
+		btnBack.addActionListener(this);
+		btnApotimisi.addActionListener(this);
 
+	}
+	
+	/**
+	 * Called when a button is pressed
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch(e.getActionCommand()) {
+			case "saveEvaluation":
+			case "goBack":
+				callbackPresenter.gotoBackToMainView();
+				break;
+            default: 
+            	Presenter.infoBox("Triggered Action", e.getActionCommand());
+		}
 	}
 }
