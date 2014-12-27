@@ -87,7 +87,6 @@ public class LawView extends View implements ActionListener {
 	
 	public void setValidity(boolean v) {
 		validity = v;
-		System.out.println(v);
 	}
 	
 	public void setComment(String c) {
