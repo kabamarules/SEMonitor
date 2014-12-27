@@ -80,9 +80,10 @@ public class Presenter implements ActionListener, ListSelectionListener{
 		// TODO Auto-generated method
 	 }
 
-	public void showLawView(int lawIndex) { 
-		// TODO Auto-generated method
-	 }
+	public void evaluateLaw(int lawIndex) {
+		mainView.hide();
+		lawView.show();
+	}
 
 	public void showMainView() { 
 		// TODO Auto-generated method
@@ -156,9 +157,38 @@ public class Presenter implements ActionListener, ListSelectionListener{
 				break;
 			case "law1":
 				selectedLaw = 1;
+				evaluateLaw(selectedLaw);
 				break;
-			default: 
-				infoBox("Triggered Action", e.getActionCommand());
+			case "law2":
+				selectedLaw = 2;
+				evaluateLaw(selectedLaw);
+				break;
+			case "law3":
+				selectedLaw = 3;
+				evaluateLaw(selectedLaw);
+				break;
+			case "law4":
+				selectedLaw = 4;
+				evaluateLaw(selectedLaw);
+				break;
+			case "law5":
+				selectedLaw = 5;
+				evaluateLaw(selectedLaw);
+				break;
+			case "law6":
+				selectedLaw = 6;
+				evaluateLaw(selectedLaw);
+				break;
+			case "law7":
+				selectedLaw = 7;
+				evaluateLaw(selectedLaw);
+				break;
+			case "law8":
+				selectedLaw = 8;
+				evaluateLaw(selectedLaw);
+				break;
+            default: 
+            	infoBox("Triggered Action", e.getActionCommand());
 		}
 	}
 	
