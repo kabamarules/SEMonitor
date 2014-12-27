@@ -25,6 +25,22 @@ public class ReleaseInformation {
 	private MetricsRecord[] metricsRecords;
 	
 	/**
+	 * Constructor
+	 * @param id 
+	 * @param date 
+	 * @param opData 
+	 * @param dsData 
+	 * @param prDate 
+	 */
+	public ReleaseInformation(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
+			MetricsRecord opMtRd, MetricsRecord dsMtRd) {
+		changeRecords[1] = opChRd;
+		changeRecords[2] = dsChRd;
+		metricsRecords[1] = opMtRd; 
+		metricsRecords[2] = dsMtRd; 
+	}
+	
+	/**
 	 * Getter of id
 	 */
 	public int getId() {
@@ -65,21 +81,5 @@ public class ReleaseInformation {
 	public MetricsRecord getDSMetrics() { 
 		return metricsRecords[2];
 	 } 
-
-	/**
-	 * Constructor
-	 * @param id 
-	 * @param date 
-	 * @param opData 
-	 * @param dsData 
-	 * @param prDate 
-	 */
-	public ReleaseInformation(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
-			MetricsRecord opMtRd, MetricsRecord dsMtRd) {
-		changeRecords[1] = opChRd;
-		changeRecords[2] = dsChRd;
-		metricsRecords[1] = opMtRd; 
-		metricsRecords[2] = dsMtRd; 
-	}
 
 }
