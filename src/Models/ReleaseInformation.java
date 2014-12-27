@@ -34,6 +34,9 @@ public class ReleaseInformation {
 	 */
 	public ReleaseInformation(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
 			MetricsRecord opMtRd, MetricsRecord dsMtRd) {
+		this.id = id;
+		this.date = date;
+		
 		changeRecords = new ChangeRecord[2];
 		metricsRecords = new MetricsRecord[2];
 		
@@ -84,5 +87,4 @@ public class ReleaseInformation {
 	public MetricsRecord getDSMetrics() { 
 		return metricsRecords[1];
 	 } 
-
 }
