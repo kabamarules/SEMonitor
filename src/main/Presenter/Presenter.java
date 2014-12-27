@@ -85,9 +85,10 @@ public class Presenter implements ActionListener, ListSelectionListener{
 		lawView.show();
 	}
 
-	public void showMainView() { 
-		// TODO Auto-generated method
-	 }
+	public void gotoBackToMainView() { 
+		mainView.show();
+		lawView.hide();
+	}
 
 	public void saveReport(String filename) { 
 		// TODO Auto-generated method
@@ -186,6 +187,11 @@ public class Presenter implements ActionListener, ListSelectionListener{
 			case "law8":
 				selectedLaw = 8;
 				evaluateLaw(selectedLaw);
+				break;
+			case "createReport":
+			case "saveEvaluation":
+			case "goBack":
+				gotoBackToMainView();
 				break;
             default: 
             	infoBox("Triggered Action", e.getActionCommand());

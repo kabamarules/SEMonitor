@@ -122,14 +122,16 @@ public class LawView extends View {
 		
 		JButton btnApotimisi = new JButton("Αποτίμηση Νόμου");
 		btnApotimisi.setBounds(313, 400, 152, 29);
+		btnApotimisi.setActionCommand("saveEvaluation");
 		add(btnApotimisi);
 		
 		JButton btnBack = new JButton("Επιστροφή");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnBack.setBounds(462, 400, 117, 29);
+		btnBack.setActionCommand("goBack");
 		add(btnBack);
+		
+		btnBack.addActionListener(callbackPresenter);
+		btnApotimisi.addActionListener(callbackPresenter);
+
 	}
 }
