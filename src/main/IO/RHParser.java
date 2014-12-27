@@ -92,10 +92,10 @@ public class RHParser {
 	         id = lScanner.nextInt(); // id
 	         //System.out.println(id);
 	         date = parseDate(lScanner.next()); // date
-	         for (int i = 0; i < 2; i++) { // operations
+	         for (int i = 0; i < 3; i++) { // operations
 	        	 op[i] = lScanner.nextInt();
 	         }
-	         for (int i = 0; i < 2; i++) { //data structures
+	         for (int i = 0; i < 3; i++) { //data structures
 	        	 ds[i] = lScanner.nextInt();
 	         }
 	         lScanner.close();
