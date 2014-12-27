@@ -97,9 +97,11 @@ public class Presenter{
 			infoBox("Σφάλμα", "Παρακαλώ επιλέξτε ένα ιστορικό από τη λίστα.");
 			return;
 		}
+		selectedLaw = lawIndex;
+		
 		lawView.setLawNumber(lawIndex);
-		lawView.setComment(lawIndex + "txt");
-		lawView.setValidity(lawIndex % 2 == 0);
+		lawView.setValidity(releaseHistories.get(selectedRH).getLawValidity(selectedLaw));
+		lawView.setComment(releaseHistories.get(selectedRH).getLawComment(selectedLaw));
 		lawView.redraw();
 		
 		mainView.hide();
@@ -116,7 +118,7 @@ public class Presenter{
 	 * @param comment
 	 */
 	public void saveLawEvaluation(Boolean validity, String comment) { 
-
+		releaseHistories.get(selectedRH).setLawEvaluation(selectedLaw, validity, comment);
 	}
 	
 	/**
