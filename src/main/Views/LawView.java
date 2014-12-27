@@ -19,15 +19,27 @@ import Presenter.Presenter;
 public class LawView extends View implements ActionListener {
 	
 	/**
+	 * Holders for the input of the user
+	 */
+	private JRadioButton radioBtnLawTrue;
+	private JTextPane txtUserComments;
+	
+	/**
 	 * The number of the selected law
 	 */
-	private Integer lawNumber;
+	private int lawNumber;
 	
 	/**
 	 * The graph data to be presented
 	 */
 	private List<Double> graphData;
 	
+	/**
+	 * The previous validity and comment if existing
+	 */
+ 	private boolean validity;
+ 	private String comment;
+ 	
 	/**
 	 * A static list containing the explanation of the laws
 	 */
@@ -37,39 +49,23 @@ public class LawView extends View implements ActionListener {
 	    add("law 2 expl");
 	    add("law 3 expl");
 	}};
+	
 
-	
-	/**
-	 * Getter of lawNumber
-	 */
-	public Integer getLawNumber() {
-	 	 return lawNumber; 
+	public void setLawNumber(int n) { 
+		 lawNumber = n; 
 	}
 	
-	/**
-	 * Setter of lawNumber
-	 */
-	public void setLawNumber(Integer lawNumber) { 
-		 this.lawNumber = lawNumber; 
+	public void setGraphData(List<Double> gd) { 
+		 graphData = gd; 
 	}
 	
-	/**
-	 * Setter of graphData
-	 */
-	public void setGraphData(List<Double> graphData) { 
-		 this.graphData = graphData; 
-	}
-
-	/**
-	 * Setter of lawExplanations
-	 */
-	public void setLawExplanations(List<String> lawExplanations) { 
-		 LawView.lawExplanations = lawExplanations; 
+	public void setValidity(boolean v) {
+		validity = v;
 	}
 	
-	public void setLawData(Integer lawNum, Boolean valid, String com, List<Double> graphData) { 
-		// TODO Auto-generated method
-	 }
+	public void setComment(String c) {
+		comment = c;
+	}
 	
 	@Override
 	public void redraw() {
@@ -80,6 +76,24 @@ public class LawView extends View implements ActionListener {
 	public LawView(Presenter callbackPresenter) {
 		super(callbackPresenter);
 		initializeView();
+	}
+	
+	/**
+	 * Called when a button is pressed
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		switch(e.getActionCommand()) {
+			case "saveEvaluation":
+				boolean validity = radioBtnLawTrue.isSelected();
+				String comment = txtUserComments.getText();
+				callbackPresenter.saveLawEvaluation(validity, comment);
+			case "goBack":
+				callbackPresenter.gotoBackToMainView();
+				break;
+            default: 
+            	Presenter.infoBox("Triggered Action", e.getActionCommand());
+		}
 	}
 	
 	private void initializeView() {
@@ -107,7 +121,7 @@ public class LawView extends View implements ActionListener {
 		radioBtnLawFalse.setBounds(431, 203, 99, 23);
 		add(radioBtnLawFalse);
 		
-		JRadioButton radioBtnLawTrue = new JRadioButton("Ισχύει");
+		radioBtnLawTrue = new JRadioButton("Ισχύει");
 		radioBtnLawTrue.setSelected(true);
 		radioBtnLawTrue.setBounds(323, 203, 107, 23);
 		add(radioBtnLawTrue);
@@ -116,7 +130,7 @@ public class LawView extends View implements ActionListener {
 	    group.add(radioBtnLawTrue);
 	    group.add(radioBtnLawFalse);
 	    
-		JTextPane txtUserComments = new JTextPane();
+		txtUserComments = new JTextPane();
 		txtUserComments.setBackground(Color.WHITE);
 		txtUserComments.setBounds(313, 274, 265, 114);
 		add(txtUserComments);
@@ -138,20 +152,5 @@ public class LawView extends View implements ActionListener {
 		btnBack.addActionListener(this);
 		btnApotimisi.addActionListener(this);
 
-	}
-	
-	/**
-	 * Called when a button is pressed
-	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		switch(e.getActionCommand()) {
-			case "saveEvaluation":
-			case "goBack":
-				callbackPresenter.gotoBackToMainView();
-				break;
-            default: 
-            	Presenter.infoBox("Triggered Action", e.getActionCommand());
-		}
 	}
 }
