@@ -21,7 +21,6 @@ public class RHParser {
 	 * @throws ParseException 
 	 */
 	public static ReleaseHistory getReleaseHistory(String fileName) throws IOException, ParseException { 
-        fileName = "/Users/kabamaru/Dropbox/cs.courses/winter/texnologia logismikou/eclipse-workspace/SEMonitor/input/AmazonMechTurk.txt";
         Path path = Paths.get(fileName);
         Scanner scanner = new Scanner(path);
                
