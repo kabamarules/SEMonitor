@@ -5,16 +5,18 @@ import Models.ReleaseHistory;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import Views.MainView;
 import Views.LawView;
 import IO.RHParser;
 
-public class Presenter {
+public class Presenter implements ActionListener{
 
 	/** 
 	 * Main window frame to hold the views
@@ -209,5 +211,16 @@ public class Presenter {
 			}
 		});
 	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Presenter.infoBox(e.getActionCommand());
+	}
+	
+	public static void infoBox(String infoMessage)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
 }
