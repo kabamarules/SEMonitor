@@ -53,8 +53,16 @@ public class ReleaseHistory {
 	 * @param dsPrTot Previous total of data structures
 	 * @param prDate 
 	 */
-	public void addRelease(int id, Date date, int[] opData, int[] dsData, int opPrTot, int dsPrTot, Date prDate) { 
-		// TODO Auto-generated method
+	public void addRelease(int id, Date date, int[] opData, int[] dsData, int opPrTot, int dsPrTot, Date prDate) {
+		// Creating the change and metrics records for the operations
+		ChangeRecord opCr = new ChangeRecord(opData[0], opData[1], opData[2], date);
+		MetricsRecord opMr = new MetricsRecord(opCr, opPrTot, prDate);
+		// Creating the change metrics records for the data structures
+		ChangeRecord dsCr = new ChangeRecord(dsData[0], dsData[1], dsData[2], date);
+		MetricsRecord dsMr = new MetricsRecord(dsCr, dsPrTot, prDate);
+
+		ReleaseInformation ri = new ReleaseInformation(id, date, opCr, dsCr, opMr, dsMr);
+		releases.add(ri);
 	}
 	
 	/**
