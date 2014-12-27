@@ -5,7 +5,9 @@ import Models.ReleaseHistory;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Date;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 
@@ -15,25 +17,25 @@ public class RHParser {
 	 * Parses a file and returns a ReleaseHistory object
 	 * @param fname 
 	 * @return 
+	 * @throws ParseException 
 	 */
-	public static ReleaseHistory getReleaseHistory(String fname) throws IOException { 
-        String fileName = "/Users/kabamaru/empty.txt";
+	public static ReleaseHistory getReleaseHistory(String fileName) throws IOException, ParseException { 
+        fileName = "/Users/kabamaru/Dropbox/cs.courses/winter/texnologia logismikou/eclipse-workspace/SEMonitor/input/AmazonMechTurk.txt";
         Path path = Paths.get(fileName);
         Scanner scanner = new Scanner(path);
-        
-        scanner.useDelimiter(System.getProperty("line.separator"));
-        
+               
         ReleaseHistory rh = new ReleaseHistory(getRHName(scanner));
         RHParser.addInitialRelease(rh, scanner);
-        //Read the initial release
+        //RHParser.addReleases(rh, scanner);
         
         scanner.close();
         return rh;
 	 }
 	
-	 private static String getRHName(Scanner scanner) {
-		 Scanner lScanner = new Scanner(scanner.next());
+	 private static String getRHName(Scanner scanner) throws IOException {
+		 Scanner lScanner = new Scanner(scanner.nextLine());
          lScanner.useDelimiter(";");
+
          //Moving forwards
          lScanner.next();
          //Getting the name
@@ -42,7 +44,7 @@ public class RHParser {
          return name;
 	 }
 	 
-	 private static void addInitialRelease(ReleaseHistory rh, Scanner scanner) {
+	 private static void addInitialRelease(ReleaseHistory rh, Scanner scanner) throws IOException, ParseException {
 		 int id = 1;
 		 int[] op = {0, 0, 0};
 		 int[] ds = {0, 0, 0};
@@ -52,21 +54,23 @@ public class RHParser {
 		 Date prDate;
 		 
          // Read the initial operations line
-		 Scanner lScanner = new Scanner(scanner.next());
+		 Scanner lScanner = new Scanner(scanner.nextLine());
          lScanner.useDelimiter(";");
          lScanner.next(); // Skipping the text
          op[0] = lScanner.nextInt();
          lScanner.close();
 
          // Read the initial data structures line
-		 lScanner = new Scanner(scanner.next()); 
-         lScanner.next(); // Skipping the text
+		 lScanner = new Scanner(scanner.nextLine()); 
+         lScanner.useDelimiter(";");
+         lScanner.next();// Skipping the text
          ds[0] = lScanner.nextInt();
          lScanner.close();
 
          // Read the date
-         scanner.next(); // skip the header line
-		 lScanner = new Scanner(scanner.next());
+         scanner.nextLine(); // skip the header line
+		 lScanner = new Scanner(scanner.nextLine());
+         lScanner.useDelimiter(";");
          lScanner.next(); // Skipping the id
          date = parseDate(lScanner.next());
          prDate = date;
@@ -75,7 +79,8 @@ public class RHParser {
          rh.addRelease(id, date, op, ds, opPrTot, dsPrTot, prDate);
 	 }
 	 
-	 private static Date parseDate(String date) {
-		return null;
+	 private static Date parseDate(String str) throws ParseException{
+	    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.parse(str); 
 	 }
 }
