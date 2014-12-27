@@ -75,45 +75,28 @@ public class Presenter implements ActionListener, ListSelectionListener{
 			}
 	      }
 	 }
-	/**
-	 * 
-	 * @param filename 
-	 */
+
 	public void createReport(String filename) { 
 		// TODO Auto-generated method
 	 }
-	/**
-	 * 
-	 * @param lawIndex 
-	 */
-	public void showLawView(Integer lawIndex) { 
+
+	public void showLawView(int lawIndex) { 
 		// TODO Auto-generated method
 	 }
-	/**
-	 * 
-	 */
+
 	public void showMainView() { 
 		// TODO Auto-generated method
 	 }
-	/**
-	 * 
-	 * @param filename 
-	 */
+
 	public void saveReport(String filename) { 
 		// TODO Auto-generated method
 	 }
-	/**
-	 * 
-	 * @param validity 
-	 * @param comment 
-	 */
+
 	public void saveLawEvaluation(Boolean validity, String comment) { 
 		// TODO Auto-generated method
 	 }
-	/**
-	 * 
-	 * @param rhIndex 
-	 */
+
+
 	public void selectRH(Integer rhIndex) { 
 		// TODO Auto-generated method
 	 } 
@@ -131,7 +114,6 @@ public class Presenter implements ActionListener, ListSelectionListener{
 		
 		mainView = new MainView(this);
 		frmSEMonitor.getContentPane().add(mainView);
-		//mainView.show();
 	}
 	
 	/**
@@ -172,6 +154,9 @@ public class Presenter implements ActionListener, ListSelectionListener{
 			case "newRH":
 				createNewRH();
 				break;
+			case "law1":
+				selectedLaw = 1;
+				break;
 			default: 
 				infoBox("Triggered Action", e.getActionCommand());
 		}
@@ -182,15 +167,13 @@ public class Presenter implements ActionListener, ListSelectionListener{
 	 */
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		System.out.println(e.getSource());
+		if (e.getValueIsAdjusting() == false) {
+			selectedRH = e.getLastIndex();
+		}
 	}
 	
 	public static void infoBox(String label, String message)
     {
         JOptionPane.showMessageDialog(null, message, label, JOptionPane.INFORMATION_MESSAGE);
     }
-
-
-
-
 }
