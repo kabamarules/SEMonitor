@@ -1,6 +1,7 @@
 package IO;
 
 import Models.ReleaseHistory;
+import Models.ReleaseInformation;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -26,7 +27,7 @@ public class RHParser {
                
         ReleaseHistory rh = new ReleaseHistory(getRHName(scanner));
         RHParser.addInitialRelease(rh, scanner);
-        //RHParser.addReleases(rh, scanner);
+        RHParser.addReleases(rh, scanner);
         
         scanner.close();
         return rh;
@@ -77,6 +78,37 @@ public class RHParser {
          lScanner.close();
 
          rh.addRelease(id, date, op, ds, opPrTot, dsPrTot, prDate);
+	 }
+	 
+	 private static void addReleases(ReleaseHistory rh, Scanner scanner) throws IOException, ParseException {
+		 while (scanner.hasNextLine()) {
+			 int id;
+			 int[] op = new int[3]; 
+			 int[] ds = new int[3]; 
+			 Date date;
+			 
+			 Scanner lScanner = new Scanner(scanner.nextLine());
+	         lScanner.useDelimiter(";");
+
+	         id = lScanner.nextInt(); // id
+	         //System.out.println(id);
+	         date = parseDate(lScanner.next()); // date
+	         for (int i = 0; i < 2; i++) { // operations
+	        	 op[i] = lScanner.nextInt();
+	         }
+	         for (int i = 0; i < 2; i++) { //data structures
+	        	 ds[i] = lScanner.nextInt();
+	         }
+	         lScanner.close();
+	         
+	         // Get previous release data
+	         ReleaseInformation ri = rh.getReleaseInformation(id - 1);
+			 int opPrTot = ri.getOperationMetrics().getTotalNumber();
+			 int dsPrTot = ri.getDSMetrics().getTotalNumber();
+			 Date prDate = ri.getDate();
+			 
+	         rh.addRelease(id, date, op, ds, opPrTot, dsPrTot, prDate);
+		 }
 	 }
 	 
 	 private static Date parseDate(String str) throws ParseException{

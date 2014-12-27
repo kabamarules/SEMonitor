@@ -86,5 +86,4 @@ public class ChangeRecord {
 		this.changes = chg;
 		this.date = dt;
 	 }
-
 }
