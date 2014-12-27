@@ -101,58 +101,58 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 	}
 	
 	private void initializeView() {
-		setBounds(10, 10, 620, 440);
+		setBounds(10, 10, 620, 500);
 		setLayout(null);
 		
 		JPanel MainButtonsPanel = new JPanel();
 		MainButtonsPanel.setBackground(new Color(230, 230, 250));
-		MainButtonsPanel.setBounds(314, 34, 272, 342);
+		MainButtonsPanel.setBounds(314, 34, 272, 446);
 		add(MainButtonsPanel);
 		MainButtonsPanel.setLayout(null);
 		
 		JButton btnLaw1 = new JButton("1ος Νόμος");
-		btnLaw1.setBounds(0, 46, 112, 29);
+		btnLaw1.setBounds(36, 46, 112, 29);
 		MainButtonsPanel.add(btnLaw1);
 		btnLaw1.setActionCommand("law1");
 		
 		JButton btnLaw2 = new JButton("2ος Νόμος");
-		btnLaw2.setBounds(0, 87, 112, 29);
+		btnLaw2.setBounds(36, 87, 112, 29);
 		MainButtonsPanel.add(btnLaw2);
 		btnLaw2.setActionCommand("law2");
 		
 		JButton btnLaw3 = new JButton("3ος Νόμος");
-		btnLaw3.setBounds(0, 128, 112, 29);
+		btnLaw3.setBounds(36, 128, 112, 29);
 		MainButtonsPanel.add(btnLaw3);
 		btnLaw3.setActionCommand("law3");
 		
 		JButton btnLaw4 = new JButton("4ος Νόμος");
-		btnLaw4.setBounds(0, 169, 112, 29);
+		btnLaw4.setBounds(36, 169, 112, 29);
 		MainButtonsPanel.add(btnLaw4);
 		btnLaw4.setFocusPainted(false);
 		btnLaw4.setActionCommand("law4");
 		
 		JButton btnLaw5 = new JButton("5ος Νόμος");
-		btnLaw5.setBounds(135, 46, 112, 29);
+		btnLaw5.setBounds(36, 210, 112, 29);
 		MainButtonsPanel.add(btnLaw5);
 		btnLaw5.setActionCommand("law5");
 		
 		JButton btnLaw6 = new JButton("6ος Νόμος");
-		btnLaw6.setBounds(135, 87, 112, 29);
+		btnLaw6.setBounds(36, 251, 112, 29);
 		MainButtonsPanel.add(btnLaw6);
 		btnLaw6.setActionCommand("law6");
 		
 		JButton btnLaw7 = new JButton("7ος Νόμος");
-		btnLaw7.setBounds(135, 128, 112, 29);
+		btnLaw7.setBounds(36, 292, 112, 29);
 		MainButtonsPanel.add(btnLaw7);
 		btnLaw7.setActionCommand("law7");
 		
 		JButton btnLaw8 = new JButton("8ος Νόμος");
-		btnLaw8.setBounds(135, 169, 112, 29);
+		btnLaw8.setBounds(36, 333, 112, 29);
 		btnLaw8.setActionCommand("law8");
 		MainButtonsPanel.add(btnLaw8);
 		
 		JButton btnReport = new JButton("Δημιουργία Αναφοράς");
-		btnReport.setBounds(0, 307, 272, 29);
+		btnReport.setBounds(0, 411, 272, 29);
 		MainButtonsPanel.add(btnReport);
 		btnReport.setActionCommand("createReport");
 		
@@ -164,48 +164,48 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		lblApotimisi.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		
 		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(106, 46, 28, 23);
+		checkBox.setBounds(160, 46, 28, 23);
 		MainButtonsPanel.add(checkBox);
 		checkBox.setEnabled(false);
 		
 		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(106, 88, 28, 23);
+		checkBox_1.setBounds(160, 87, 28, 23);
 		MainButtonsPanel.add(checkBox_1);
 		checkBox_1.setEnabled(false);
 		
 		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setBounds(106, 129, 28, 23);
+		checkBox_2.setBounds(160, 128, 28, 23);
 		MainButtonsPanel.add(checkBox_2);
 		checkBox_2.setEnabled(false);
 		
 		JCheckBox checkBox_3 = new JCheckBox("");
-		checkBox_3.setBounds(106, 170, 28, 23);
+		checkBox_3.setBounds(160, 169, 28, 23);
 		MainButtonsPanel.add(checkBox_3);
 		checkBox_3.setEnabled(false);
 		
 		JCheckBox checkBox_4 = new JCheckBox("");
-		checkBox_4.setBounds(244, 46, 28, 23);
+		checkBox_4.setBounds(160, 210, 28, 23);
 		MainButtonsPanel.add(checkBox_4);
 		checkBox_4.setEnabled(false);
 		
 		JCheckBox checkBox_5 = new JCheckBox("");
-		checkBox_5.setBounds(244, 88, 28, 23);
+		checkBox_5.setBounds(160, 251, 28, 23);
 		MainButtonsPanel.add(checkBox_5);
 		checkBox_5.setEnabled(false);
 		
 		JCheckBox checkBox_6 = new JCheckBox("");
-		checkBox_6.setBounds(244, 128, 28, 23);
+		checkBox_6.setBounds(160, 292, 28, 23);
 		MainButtonsPanel.add(checkBox_6);
 		checkBox_6.setEnabled(false);
 		
 		JCheckBox checkBox_7 = new JCheckBox("");
-		checkBox_7.setBounds(244, 169, 28, 23);
+		checkBox_7.setBounds(160, 333, 28, 23);
 		MainButtonsPanel.add(checkBox_7);
 		checkBox_7.setEnabled(false);
 		
 		JScrollPane SoftwareToolsListScrollPane = new JScrollPane();
 		SoftwareToolsListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		SoftwareToolsListScrollPane.setBounds(26, 74, 222, 261);
+		SoftwareToolsListScrollPane.setBounds(26, 74, 222, 365);
 	
 		JList SoftwareToolsList = new JList(rhNames);
 		SoftwareToolsList.setVisibleRowCount(100);
@@ -224,7 +224,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		JButton btnNewSystem = new JButton("Νέο Ιστορικό");
 		btnNewSystem.setFocusPainted(false);
 		btnNewSystem.setActionCommand("newRH");
-		btnNewSystem.setBounds(23, 347, 225, 29);
+		btnNewSystem.setBounds(25, 445, 225, 29);
 		add(btnNewSystem);
 		
 		btnNewSystem.addActionListener(this);

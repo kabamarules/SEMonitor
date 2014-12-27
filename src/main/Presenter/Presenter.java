@@ -80,7 +80,11 @@ public class Presenter{
 	 }
 
 	public void evaluateLaw(int lawIndex) {
-		System.out.println(lawIndex);
+		lawView.setLawNumber(lawIndex);
+		lawView.setComment(lawIndex + "txt");
+		lawView.setValidity(lawIndex % 2 == 0);
+		lawView.redraw();
+		
 		mainView.hide();
 		lawView.show();
 	}
@@ -95,7 +99,7 @@ public class Presenter{
 	 }
 
 	public void saveLawEvaluation(Boolean validity, String comment) { 
-		// TODO Auto-generated method
+		System.out.println(validity + " " + comment);
 	 }
 
 
@@ -111,6 +115,7 @@ public class Presenter{
 		
 		initializeFrame();
 		lawView = new LawView(this);
+		lawView.setBounds(10, 10, 620, 502);
 		frmSEMonitor.getContentPane().add(lawView);
 		lawView.hide();
 		
@@ -124,7 +129,7 @@ public class Presenter{
 	private void initializeFrame() {
 		frmSEMonitor = new JFrame();
 		frmSEMonitor.setTitle("Software Evolution Monitor Tool");
-		frmSEMonitor.setSize(new Dimension(640, 480));
+		frmSEMonitor.setSize(new Dimension(640, 540));
 		frmSEMonitor.setResizable(false);
 		frmSEMonitor.getContentPane().setBackground(new Color(0, 0, 64));
 		frmSEMonitor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
