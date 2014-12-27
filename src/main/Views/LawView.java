@@ -99,8 +99,8 @@ public class LawView extends View implements ActionListener {
 	 */
 	@Override
 	public void redraw() {
-		lblLawName.setText(lawNumber + "ος Νόμος");
-		txtLawDescription.setText(lawDescriptions[lawNumber - 1]);
+		lblLawName.setText( (lawNumber + 1) + "ος Νόμος");
+		txtLawDescription.setText(lawDescriptions[lawNumber]);
 		selectRadioButton(validity);
 		txtUserComments.setText(comment);
 	} 

@@ -26,6 +26,16 @@ import Presenter.Presenter;
 @SuppressWarnings("serial")
 public class MainView extends View implements ActionListener, ListSelectionListener{
 
+	// Constants, we don't like magin numbers
+	private final int LAW_1 = 0;
+	private final int LAW_2 = 1;
+	private final int LAW_3 = 2;
+	private final int LAW_4 = 3;
+	private final int LAW_5 = 4;
+	private final int LAW_6 = 5;
+	private final int LAW_7 = 6;
+	private final int LAW_8 = 7;
+
 	/**
 	 * The names list of the loaded software systems data 
 	 */
@@ -61,28 +71,28 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 				callbackPresenter.createNewRH();
 				break;
 			case "law1":
-				callbackPresenter.evaluateLaw(1);
+				callbackPresenter.evaluateLaw(LAW_1);
 				break;
 			case "law2":
-				callbackPresenter.evaluateLaw(2);
+				callbackPresenter.evaluateLaw(LAW_2);
 				break;
 			case "law3":
-				callbackPresenter.evaluateLaw(3);
+				callbackPresenter.evaluateLaw(LAW_3);
 				break;
 			case "law4":
-				callbackPresenter.evaluateLaw(4);
+				callbackPresenter.evaluateLaw(LAW_4);
 				break;
 			case "law5":
-				callbackPresenter.evaluateLaw(5);
+				callbackPresenter.evaluateLaw(LAW_5);
 				break;
 			case "law6":
-				callbackPresenter.evaluateLaw(6);
+				callbackPresenter.evaluateLaw(LAW_6);
 				break;
 			case "law7":
-				callbackPresenter.evaluateLaw(7);
+				callbackPresenter.evaluateLaw(LAW_7);
 				break;
 			case "law8":
-				callbackPresenter.evaluateLaw(8);
+				callbackPresenter.evaluateLaw(LAW_8);
 				break;
 			case "createReport":
             default: 

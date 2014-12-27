@@ -28,8 +28,8 @@ public class Presenter{
 	private JFrame frmSEMonitor;
 
 	private List<ReleaseHistory> releaseHistories;
-	private int selectedRH;
-	private int selectedLaw;
+	private int selectedRH; // Starting at 0
+	private int selectedLaw; // Starting at 0
 	private MainView mainView;
 	private LawView lawView;
 	
@@ -49,7 +49,7 @@ public class Presenter{
 		 this.selectedRH = selectedRH; 
 	}
 	
-	public Integer getSelectedLaw() {
+	public int getSelectedLaw() {
 	 	 return selectedLaw; 
 	}
 	
@@ -99,7 +99,7 @@ public class Presenter{
 	 }
 
 	public void saveLawEvaluation(Boolean validity, String comment) { 
-		System.out.println(validity + " " + comment);
+		
 	 }
 
 
