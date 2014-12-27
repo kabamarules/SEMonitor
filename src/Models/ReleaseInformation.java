@@ -87,4 +87,11 @@ public class ReleaseInformation {
 	public MetricsRecord getDSMetrics() { 
 		return metricsRecords[1];
 	 } 
+
+	@Override
+	public String toString() {
+		return "Id: " + id + ", Date: " + date + 
+				"\nOperations\n" + changeRecords[0] + "\n" + metricsRecords[0] +
+				"\nData Structures\n" + changeRecords[1] + "\n" + metricsRecords[1] + "\n";
+	}
 }

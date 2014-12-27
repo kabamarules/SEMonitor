@@ -94,6 +94,12 @@ public class MetricsRecord {
         double diff = previousDate.getTime() - changeRecord.getDate().getTime();
         return diff / 1000.0 / 60.0 / 60.0 / 24.0;
 	 } 
+	
+	@Override
+	public String toString() {
+		return "Total/Growth/Compl/TaskRate: " + getTotalNumber() + "," + getGrowthRate() + "," + getComplexity() +
+				"," + getTaskRate();
+	}
 
 	/**
 	 * Constructor
