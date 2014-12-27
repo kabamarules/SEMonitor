@@ -11,9 +11,8 @@ import java.util.Scanner;
 
 public class RHParser {
 
-	private static ReleaseHistory rh;
 	/**
-	 * 
+	 * Parses a file and returns a ReleaseHistory object
 	 * @param fname 
 	 * @return 
 	 */
@@ -24,8 +23,8 @@ public class RHParser {
         
         scanner.useDelimiter(System.getProperty("line.separator"));
         
-        rh = new ReleaseHistory(getRHName(scanner));
-        RHParser.getInitialRelease(scanner);
+        ReleaseHistory rh = new ReleaseHistory(getRHName(scanner));
+        RHParser.addInitialRelease(rh, scanner);
         //Read the initial release
         
         scanner.close();
@@ -43,7 +42,7 @@ public class RHParser {
          return name;
 	 }
 	 
-	 private static void getInitialRelease(Scanner scanner) {
+	 private static void addInitialRelease(ReleaseHistory rh, Scanner scanner) {
 		 int id = 1;
 		 int[] op = {0, 0, 0};
 		 int[] ds = {0, 0, 0};
@@ -78,6 +77,5 @@ public class RHParser {
 	 
 	 private static Date parseDate(String date) {
 		return null;
-		 
 	 }
 }
