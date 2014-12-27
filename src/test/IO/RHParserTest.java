@@ -19,7 +19,7 @@ public class RHParserTest {
 		
 		try {
 			ReleaseHistory rh = RHParser.getReleaseHistory("src/test/resources/AmazonMechTurk.txt");
-			
+
 			assertEquals("Wrong number of releases", 20, rh.getReleases().size());
 			
 			int inOp = rh.getReleaseInformation(1).getOperationMetrics().getTotalNumber();

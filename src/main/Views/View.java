@@ -43,7 +43,7 @@ import java.awt.SystemColor;
 
 public abstract class View extends JPanel {
 
-	private Presenter callbackPresenter;
+	protected Presenter callbackPresenter;
 
 	/**
 	 * Getter of callbackPresenter

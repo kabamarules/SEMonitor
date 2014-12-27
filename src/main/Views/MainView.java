@@ -3,11 +3,8 @@ package Views;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.AbstractListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -101,12 +98,13 @@ public class MainView extends View {
 		
 		JButton btnLaw8 = new JButton("8ος Νόμος");
 		btnLaw8.setBounds(135, 169, 112, 29);
+		btnLaw7.setActionCommand("law8");
 		MainButtonsPanel.add(btnLaw8);
 		
 		JButton btnReport = new JButton("Δημιουργία Αναφοράς");
 		btnReport.setBounds(0, 307, 272, 29);
 		MainButtonsPanel.add(btnReport);
-		btnReport.setActionCommand("Create Report");
+		btnReport.setActionCommand("createReport");
 		
 		JLabel lblApotimisi = new JLabel("Αποτίμηση Νόμων του Lehman");
 		lblApotimisi.setHorizontalAlignment(SwingConstants.CENTER);
@@ -124,7 +122,6 @@ public class MainView extends View {
 		checkBox_1.setBounds(106, 88, 28, 23);
 		MainButtonsPanel.add(checkBox_1);
 		checkBox_1.setEnabled(false);
-		checkBox_1.setSelected(true);
 		
 		JCheckBox checkBox_2 = new JCheckBox("");
 		checkBox_2.setBounds(106, 129, 28, 23);
@@ -145,13 +142,11 @@ public class MainView extends View {
 		checkBox_5.setBounds(244, 88, 28, 23);
 		MainButtonsPanel.add(checkBox_5);
 		checkBox_5.setEnabled(false);
-		checkBox_5.setSelected(true);
 		
 		JCheckBox checkBox_6 = new JCheckBox("");
 		checkBox_6.setBounds(244, 128, 28, 23);
 		MainButtonsPanel.add(checkBox_6);
 		checkBox_6.setEnabled(false);
-		checkBox_6.setSelected(true);
 		
 		JCheckBox checkBox_7 = new JCheckBox("");
 		checkBox_7.setBounds(244, 169, 28, 23);
@@ -165,35 +160,42 @@ public class MainView extends View {
 		JList SoftwareToolsList = new JList();
 		SoftwareToolsList.setVisibleRowCount(100);
 		
-		SoftwareToolsList.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Calc iOS Application", "Bitcoin miner", "A random Software Tool "};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+//		SoftwareToolsList.setModel(new AbstractListModel() {
+//			String[] values = new String[] {"Calc iOS Application", "Bitcoin miner", "A random Software Tool "};
+//			public int getSize() {
+//				return values.length;
+//			}
+//			public Object getElementAt(int index) {
+//				return values[index];
+//			}
+//		});
 		
 		SoftwareToolsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		SoftwareToolsListScrollPane.setColumnHeaderView(SoftwareToolsList);
 		add(SoftwareToolsListScrollPane);
 
-		JLabel label = new JLabel("Συστήματα Λογισμικού");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		label.setAlignmentX(0.5f);
-		label.setBounds(26, 34, 222, 34);
-		add(label);
+		JLabel lblSystems = new JLabel("Συστήματα Λογισμικού");
+		lblSystems.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSystems.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblSystems.setAlignmentX(0.5f);
+		lblSystems.setBounds(26, 34, 222, 34);
+		add(lblSystems);
 		
-		JButton button = new JButton("Νέο Σύστημα");
-		button.setFocusPainted(false);
-		button.setActionCommand("law4");
-		button.setBounds(23, 347, 225, 29);
-		add(button);
-		btnLaw1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		JButton btnNewSystem = new JButton("Νέο Σύστημα");
+		btnNewSystem.setFocusPainted(false);
+		btnNewSystem.setActionCommand("newSystem");
+		btnNewSystem.setBounds(23, 347, 225, 29);
+		add(btnNewSystem);
+		
+		btnNewSystem.addActionListener(callbackPresenter);
+		btnLaw1.addActionListener(callbackPresenter);
+		btnLaw2.addActionListener(callbackPresenter);
+		btnLaw3.addActionListener(callbackPresenter);
+		btnLaw4.addActionListener(callbackPresenter);
+		btnLaw5.addActionListener(callbackPresenter);
+		btnLaw6.addActionListener(callbackPresenter);
+		btnLaw7.addActionListener(callbackPresenter);
+		btnLaw8.addActionListener(callbackPresenter);
+		btnReport.addActionListener(callbackPresenter);
 	}
 }
