@@ -57,6 +57,14 @@ public class Presenter{
 		 this.selectedLaw = selectedLaw; 
 	}
 
+	public void selectRH(Integer rhIndex) { 
+		// TODO Auto-generated method
+	 } 
+	
+	/**
+	 * Main view callback function for opening a new file and 
+	 * adding a new release history to the list
+	 */
 	public void createNewRH() { 
 	      JFileChooser c = new JFileChooser();
 	      int rVal = c.showOpenDialog(mainView);
@@ -75,10 +83,11 @@ public class Presenter{
 	      }
 	 }
 
-	public void createReport(String filename) { 
-		// TODO Auto-generated method
-	 }
-
+	/**
+	 * Main view callback that opens the law view for the
+	 * selected release history and the given law.
+	 * @param lawIndex
+	 */
 	public void evaluateLaw(int lawIndex) {
 		lawView.setLawNumber(lawIndex);
 		lawView.setComment(lawIndex + "txt");
@@ -88,24 +97,27 @@ public class Presenter{
 		mainView.hide();
 		lawView.show();
 	}
+	
+	public void createReport(String filename) { 
+		// TODO Auto-generated method
+	 }
 
+	/**
+	 * Law view callback function. Saving evaluation and comment for law.
+	 * @param validity
+	 * @param comment
+	 */
+	public void saveLawEvaluation(Boolean validity, String comment) { 
+		
+	}
+	
+	/**
+	 * Law view callback to get back to main menu.
+	 */
 	public void gotoBackToMainView() { 
 		mainView.show();
 		lawView.hide();
 	}
-
-	public void saveReport(String filename) { 
-		// TODO Auto-generated method
-	 }
-
-	public void saveLawEvaluation(Boolean validity, String comment) { 
-		
-	 }
-
-
-	public void selectRH(Integer rhIndex) { 
-		// TODO Auto-generated method
-	 } 
 	
 	/**
 	 * Create the main window.

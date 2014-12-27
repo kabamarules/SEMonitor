@@ -26,7 +26,7 @@ import Presenter.Presenter;
 @SuppressWarnings("serial")
 public class MainView extends View implements ActionListener, ListSelectionListener{
 
-	// Constants, we don't like magin numbers
+	// Constants, we don't like magic numbers
 	private final int LAW_1 = 0;
 	private final int LAW_2 = 1;
 	private final int LAW_3 = 2;
