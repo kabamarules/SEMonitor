@@ -84,7 +84,7 @@ public class MetricsRecord {
 	 */
 	public double getTaskRate() { 
 		double allChanges = (double)(changeRecord.getChanges() + changeRecord.getDeletions() + changeRecord.getAdditions());
-		return allChanges / getTimeSinceLastRelease();
+		return getTimeSinceLastRelease() == 0 ? 0 : allChanges / getTimeSinceLastRelease();
 	 }
 	
 	/**
