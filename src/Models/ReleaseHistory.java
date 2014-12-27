@@ -80,7 +80,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	public ReleaseInformation getReleaseInformation(int releaseID) { 
-		return releases.get(releaseID);
+		return releases.get(releaseID - 1);
 	 }
 	
 	/**
