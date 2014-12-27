@@ -77,7 +77,7 @@ public class Presenter{
 				releaseHistories.add(rh);
 				mainView.addRH(rh.getName());
 			} catch (Exception e) {
-				infoBox("Error", "Could not parse the file.");
+				infoBox("Σφάλμα", "Το αρχείο δεν μπορεί να διαβαστεί.");
 				e.printStackTrace();
 			}
 	      }
@@ -89,6 +89,14 @@ public class Presenter{
 	 * @param lawIndex
 	 */
 	public void evaluateLaw(int lawIndex) {
+		if (releaseHistories.size() == 0) {
+			infoBox("Σφάλμα", "Παρακαλώ προσθέστε τουλάχιστον ένα ιστορικό στην λίστα.");
+			return;
+		}
+		if (selectedRH < 0) {
+			infoBox("Σφάλμα", "Παρακαλώ επιλέξτε ένα ιστορικό από τη λίστα.");
+			return;
+		}
 		lawView.setLawNumber(lawIndex);
 		lawView.setComment(lawIndex + "txt");
 		lawView.setValidity(lawIndex % 2 == 0);
@@ -108,7 +116,7 @@ public class Presenter{
 	 * @param comment
 	 */
 	public void saveLawEvaluation(Boolean validity, String comment) { 
-		
+
 	}
 	
 	/**
@@ -124,6 +132,8 @@ public class Presenter{
 	 */
 	public Presenter() {
 		releaseHistories = new ArrayList<ReleaseHistory>();
+		selectedRH = -1;
+		selectedLaw = -1;
 		
 		initializeFrame();
 		lawView = new LawView(this);
