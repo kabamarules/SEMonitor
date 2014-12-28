@@ -48,8 +48,8 @@ public class RHParser {
 		 int id = 1;
 		 int[] op = {0, 0, 0};
 		 int[] ds = {0, 0, 0};
-		 int opPrTot = 0;
-		 int dsPrTot = 0;
+		 int opPrTot;
+		 int dsPrTot;
 		 Date date;
 		 Date prDate;
 		 
@@ -57,14 +57,14 @@ public class RHParser {
 		 Scanner lScanner = new Scanner(scanner.nextLine());
          lScanner.useDelimiter(";");
          lScanner.next(); // Skipping the text
-         op[0] = lScanner.nextInt();
+         opPrTot = lScanner.nextInt();
          lScanner.close();
 
          // Read the initial data structures line
 		 lScanner = new Scanner(scanner.nextLine()); 
          lScanner.useDelimiter(";");
          lScanner.next();// Skipping the text
-         ds[0] = lScanner.nextInt();
+         dsPrTot = lScanner.nextInt();
          lScanner.close();
 
          // Read the date
