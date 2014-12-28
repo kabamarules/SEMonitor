@@ -67,7 +67,7 @@ public class Grapher {
 				break;
 			case LehmanLawsRecord.LAW_8:
 				graphs.add(lineChart(rh.getTotalNumberData(ReleaseInfo.operations), "Total operations"));
-				//graphs.add(lineChart(rh.getTotalEstimatedData(), "Estimated operations"));
+				graphs.add(lineChart(rh.getTotalEstimatedData(), "Estimated operations"));
 				break;
 		}
 		return graphs;

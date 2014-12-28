@@ -247,11 +247,53 @@ public class ReleaseHistory {
 	
 	/**
 	 * Returns the number of operations estimations graph data.
+	 * Uses Lehman's Inverse Square formulation.
+	 * "Metrics and Laws of Software Evolution - The Nineties View", Lehman et. al.
 	 * Used in Law 8.
 	 * @return 
 	 */
 	public Map<Integer, Double> getTotalEstimatedData() { 
-		// TODO Implement
-		return null;
-	 } 
+		Map<Integer, Double> m = new HashMap<Integer, Double>();
+		
+		// For the first release we can't make a prediction
+		m.put(1, (double)getReleaseByID(1).getMetricsRecord(ReleaseInfo.operations).getTotalNumber());
+				
+		for(int iplusone = 2; iplusone <= getNumberOfReleases(); iplusone++) {
+			double si = m.get(iplusone - 1);
+			double siplusone = si + ( computeETilde(iplusone)/ Math.pow(si, 2));
+			m.put(getReleaseByID(iplusone).getId(), siplusone);
+		}
+		return m;
+	}
+	
+	/**
+	 * Computes the E tilde parameter of Lehman's Inverse Square Formula
+	 * @param release
+	 * @return
+	 */
+	private double computeETilde(int release) {
+		double sum = 0;
+		for (int i = 1; i <= release; i++) {
+			sum += computeE(i);
+		}
+		return sum / release;
+	}
+	
+	/**
+	 * Computes E parameter of Lehman's Inverse Square Formula.
+	 * @param release
+	 * @return
+	 */
+	private double computeE(int release) {
+		double sone = (double)getReleaseByID(1).getMetricsRecord(ReleaseInfo.operations).getTotalNumber();
+		double si = (double)getReleaseByID(release).getMetricsRecord(ReleaseInfo.operations).getTotalNumber();
+		
+		double sum = 0;
+		double s = 0;
+		for (int i = 1; i < release; i++) {
+			s = (double)getReleaseByID(i).getMetricsRecord(ReleaseInfo.operations).getTotalNumber();
+			sum += 1 / Math.pow(s, 2);
+		}
+		return (si - sone) == 0 ? 0.0 : (si - sone) / sum;
+	}
 }
