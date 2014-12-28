@@ -143,6 +143,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	public Map<Integer, Integer> getVersionsPerYearData() { 
+		// TODO Implement
 		return null;
 	 }
 	
@@ -167,9 +168,18 @@ public class ReleaseHistory {
 	 * Used in Law 2.
 	 * @return 
 	 */
-	public Map<Integer, Integer> getMaintananceActionsData() { 
-		// TODO Implement
-		return null;
+	public Map<Integer, Integer> getMaintenanceActionsData() { 
+		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
+		
+		for(int i = 1; i <= getNumberOfReleases(); i++) {
+			ReleaseInfo rh = getReleaseByID(i);
+			int maintenance = rh.getChangesRecord(ReleaseInfo.operations).getChanges() +
+					rh.getChangesRecord(ReleaseInfo.operations).getDeletions() +
+					rh.getChangesRecord(ReleaseInfo.dataStructures).getChanges() +
+					rh.getChangesRecord(ReleaseInfo.dataStructures).getDeletions();
+			m.put(rh.getId(), maintenance);
+		}
+		return m;
 	 }
 	
 	/**
@@ -211,8 +221,13 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	public Map<Integer, Integer> getTotalNumberData(boolean opOrDs) { 
-		// TODO Implement
-		return null;
+		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
+		
+		for(int i = 1; i <= getNumberOfReleases(); i++) {
+			ReleaseInfo rh = getReleaseByID(i);
+			m.put(rh.getId(), rh.getMetricsRecord(opOrDs).getTotalNumber());
+		}
+		return m;
 	 }
 	
 	/**
