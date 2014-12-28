@@ -48,8 +48,8 @@ public class MetricsRecord {
 	 * Returns the growth rate of changes for the current release
 	 * @return 
 	 */
-	public int getGrowthRate() { 
-		return changeRecord.getAdditions() - changeRecord.getDeletions();
+	public double getGrowthRate() { 
+		return (double)(changeRecord.getAdditions() - changeRecord.getDeletions());
 	 }
 	
 	/**
