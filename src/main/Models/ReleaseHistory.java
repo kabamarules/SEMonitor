@@ -195,8 +195,13 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	public Map<Integer, Double> getWorkRateData(boolean opOrDs) { 
-		// TODO Implement
-		return null;
+		Map<Integer, Double> m = new HashMap<Integer, Double>();
+		
+		for(int i = 1; i <= getNumberOfReleases(); i++) {
+			ReleaseInfo rh = getReleaseByID(i);
+			m.put(rh.getId(), rh.getMetricsRecord(opOrDs).getTaskRate());
+		}
+		return m;
 	 }
 	
 	/**
