@@ -70,7 +70,7 @@ public class MetricsRecord {
 	public double getTaskRate() { 
 		double allChanges = (double)(changeRecord.getChanges() + changeRecord.getDeletions() + changeRecord.getAdditions());
 		return getTimeSinceLastRelease() == 0 ? 0 : allChanges / getTimeSinceLastRelease();
-	 }
+	}
 	
 	/**
 	 * Returns the elapsed time in days since the last release
