@@ -1,5 +1,6 @@
 package IO;
 
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,10 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -35,7 +39,7 @@ public class Grapher {
 			case LehmanLawsRecord.LAW_1:
 				graphs.add(barChart(rh.getChangesData(ReleaseInfo.operations), "Operation changes"));
 				graphs.add(barChart(rh.getChangesData(ReleaseInfo.dataStructures), "DS Changes"));
-				//graphs.add(barChart(rh.getVersionsPerYearData(), "Version per year"));
+				graphs.add(barChart(rh.getVersionsPerYearData(), "Versions per year"));
 				break;
 			case LehmanLawsRecord.LAW_2:
 				graphs.add(lineChart(rh.getComplexityData(ReleaseInfo.operations), "Operations Complexity"));
@@ -79,6 +83,12 @@ public class Grapher {
         "", "", dataset, PlotOrientation.VERTICAL,
         false, false, false);
         
+        CategoryPlot p = chart.getCategoryPlot(); 
+        CategoryAxis axisX = p.getDomainAxis();
+
+        Font fontX = new Font("Dialog", Font.PLAIN, 8);;
+        axisX.setTickLabelFont(fontX);
+
         ChartPanel chartPanel = new ChartPanel(chart);
         return chartPanel;
 	}
