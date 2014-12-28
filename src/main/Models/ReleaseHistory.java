@@ -125,9 +125,48 @@ public class ReleaseHistory {
 	 * @param lawNumber 
 	 * @return 
 	 */
-	public double getLawGraphData(int lawNumber) { 
-		// TODO Auto-generated method
-		return 0;
+	public List<List<Double>> getLawGraphData(int lawNumber) { 
+		List<List<Double>> graphList = new ArrayList<List<Double>>();
+		
+		boolean operations = true;
+		boolean dataStructures = false;
+		
+		switch (lawNumber) {
+			case LehmanLawsRecord.LAW_1:
+				graphList.add(getChangesData(operations));
+				graphList.add(getChangesData(dataStructures));
+				graphList.add(getVersionsPerYearData());
+				break;
+			case LehmanLawsRecord.LAW_2:
+				graphList.add(getComplexityData(operations));
+				graphList.add(getComplexityData(dataStructures));
+				graphList.add(getMaintananceActionsData());
+				break;
+			case LehmanLawsRecord.LAW_3:
+				graphList.add(getGrowthData(operations));
+				graphList.add(getGrowthData(dataStructures));
+				break;
+			case LehmanLawsRecord.LAW_4:
+				graphList.add(getWorkRateData(operations));
+				graphList.add(getWorkRateData(dataStructures));
+				break;
+			case LehmanLawsRecord.LAW_5:
+				graphList.add(getGrowthData(operations));
+				graphList.add(getGrowthData(dataStructures));
+				break;
+			case LehmanLawsRecord.LAW_6:
+				graphList.add(getTotalNumberData(operations));
+				graphList.add(getTotalNumberData(dataStructures));
+				break;
+			case LehmanLawsRecord.LAW_7:
+				// No graphs
+				break;
+			case LehmanLawsRecord.LAW_8:
+				graphList.add(getTotalNumberData(operations));
+				graphList.add(getTotalEstimatedData());
+				break;
+		}
+		return graphList;
 	 }
 	
 	/**
@@ -137,7 +176,6 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getChangesData(boolean opOrDs) { 
-		// TODO Auto-generated method
 		return null;
 	 }
 	
@@ -147,7 +185,6 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getVersionsPerYearData() { 
-		// TODO Auto-generated method
 		return null;
 	 }
 	
@@ -158,7 +195,6 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getComplexityData(boolean opOrDs) { 
-		// TODO Auto-generated method
 		return null;
 	 }
 	
@@ -168,7 +204,6 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getMaintananceActionsData() { 
-		// TODO Auto-generated method
 		return null;
 	 }
 	
@@ -178,9 +213,8 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private double getGrowthData(boolean opOrDs) { 
-		// TODO Auto-generated method
-		return 0;
+	private List<Double> getGrowthData(boolean opOrDs) { 
+		return null;
 	 }
 	
 	/**
@@ -189,9 +223,8 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private double getWorkRateData(boolean opOrDs) { 
-		// TODO Auto-generated method
-		return 0;
+	private List<Double> getWorkRateData(boolean opOrDs) { 
+		return null;
 	 }
 	
 	/**
@@ -200,9 +233,8 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private double getNumberData(boolean opOrDs) { 
-		// TODO Auto-generated method
-		return 0;
+	private List<Double> getTotalNumberData(boolean opOrDs) { 
+		return null;
 	 }
 	
 	/**
@@ -210,8 +242,7 @@ public class ReleaseHistory {
 	 * Used in Law 8.
 	 * @return 
 	 */
-	private List<Double> getNumOpEstData() { 
-		// TODO Auto-generated method
+	private List<Double> getTotalEstimatedData() { 
 		return null;
 	 } 
 }
