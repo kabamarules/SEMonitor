@@ -173,7 +173,11 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getChangesData(boolean opOrDs) { 
-		return null;
+		ArrayList<Double> l = new ArrayList<Double>();
+		for(int i = 0; i < getNumberOfReleases(); i++) {
+			l.add(new Double(getReleaseInformation(i).getChangesRecord(opOrDs).getChanges()));
+		}
+		return l;
 	 }
 	
 	/**
