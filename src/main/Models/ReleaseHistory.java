@@ -142,9 +142,24 @@ public class ReleaseHistory {
 	 * Used in Law 1
 	 * @return 
 	 */
+	@SuppressWarnings("deprecation")
 	public Map<Integer, Integer> getVersionsPerYearData() { 
-		// TODO Implement
-		return null;
+		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
+		
+		int minYear = getReleaseByID(1).getDate().getYear() + 1900; // Java's internal year numbering
+		int maxYear = getReleaseByID(getNumberOfReleases()).getDate().getYear() + 1900;
+
+		// Initializing to get 0 even if there isn't a release on a year
+		for (int i = minYear; i <= maxYear; i++) {
+			m.put(i, 0);
+		}
+		
+		int year;
+		for(int i = 1; i <= getNumberOfReleases(); i++) {
+			year = getReleaseByID(i).getDate().getYear() + 1900; 
+			m.replace(year, m.get(year) + 1);
+		}
+		return m;
 	 }
 	
 	/**
