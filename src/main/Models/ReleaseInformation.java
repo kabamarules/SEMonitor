@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class ReleaseInformation {
 
+	public static final boolean operations = true;
+	public static final boolean dataStructures = false;
+	
 	/**
 	 * The sequential id of the release
 	 */

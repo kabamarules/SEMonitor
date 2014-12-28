@@ -14,7 +14,7 @@ public class ReleaseHistory {
 	/**
 	 * The list of the release
 	 */
-	private List<ReleaseInformation> releases;
+	private List<ReleaseInformation> releases; // Indexed by 0
 	
 	/**
 	 * The holder of the laws validity and comments
@@ -69,7 +69,7 @@ public class ReleaseHistory {
 	
 	/**
 	 * Gets a release by id.
-	 * Initial release has id 1.
+	 * Initial release has ID 1 and index 0.
 	 * @param releaseID 
 	 * @return 
 	 */
@@ -128,41 +128,38 @@ public class ReleaseHistory {
 	public List<List<Double>> getLawGraphData(int lawNumber) { 
 		List<List<Double>> graphList = new ArrayList<List<Double>>();
 		
-		boolean operations = true;
-		boolean dataStructures = false;
-		
 		switch (lawNumber) {
 			case LehmanLawsRecord.LAW_1:
-				graphList.add(getChangesData(operations));
-				graphList.add(getChangesData(dataStructures));
+				graphList.add(getChangesData(ReleaseInformation.operations));
+				graphList.add(getChangesData(ReleaseInformation.dataStructures));
 				graphList.add(getVersionsPerYearData());
 				break;
 			case LehmanLawsRecord.LAW_2:
-				graphList.add(getComplexityData(operations));
-				graphList.add(getComplexityData(dataStructures));
+				graphList.add(getComplexityData(ReleaseInformation.operations));
+				graphList.add(getComplexityData(ReleaseInformation.dataStructures));
 				graphList.add(getMaintananceActionsData());
 				break;
 			case LehmanLawsRecord.LAW_3:
-				graphList.add(getGrowthData(operations));
-				graphList.add(getGrowthData(dataStructures));
+				graphList.add(getGrowthData(ReleaseInformation.operations));
+				graphList.add(getGrowthData(ReleaseInformation.dataStructures));
 				break;
 			case LehmanLawsRecord.LAW_4:
-				graphList.add(getWorkRateData(operations));
-				graphList.add(getWorkRateData(dataStructures));
+				graphList.add(getWorkRateData(ReleaseInformation.operations));
+				graphList.add(getWorkRateData(ReleaseInformation.dataStructures));
 				break;
 			case LehmanLawsRecord.LAW_5:
-				graphList.add(getGrowthData(operations));
-				graphList.add(getGrowthData(dataStructures));
+				graphList.add(getGrowthData(ReleaseInformation.operations));
+				graphList.add(getGrowthData(ReleaseInformation.dataStructures));
 				break;
 			case LehmanLawsRecord.LAW_6:
-				graphList.add(getTotalNumberData(operations));
-				graphList.add(getTotalNumberData(dataStructures));
+				graphList.add(getTotalNumberData(ReleaseInformation.operations));
+				graphList.add(getTotalNumberData(ReleaseInformation.dataStructures));
 				break;
 			case LehmanLawsRecord.LAW_7:
 				// No graphs
 				break;
 			case LehmanLawsRecord.LAW_8:
-				graphList.add(getTotalNumberData(operations));
+				graphList.add(getTotalNumberData(ReleaseInformation.operations));
 				graphList.add(getTotalEstimatedData());
 				break;
 		}
@@ -204,6 +201,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getMaintananceActionsData() { 
+		// TODO Implement
 		return null;
 	 }
 	
@@ -214,6 +212,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getGrowthData(boolean opOrDs) { 
+		// TODO Implement
 		return null;
 	 }
 	
@@ -224,6 +223,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getWorkRateData(boolean opOrDs) { 
+		// TODO Implement
 		return null;
 	 }
 	
@@ -234,6 +234,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getTotalNumberData(boolean opOrDs) { 
+		// TODO Implement
 		return null;
 	 }
 	
@@ -243,6 +244,7 @@ public class ReleaseHistory {
 	 * @return 
 	 */
 	private List<Double> getTotalEstimatedData() { 
+		// TODO Implement
 		return null;
 	 } 
 }
