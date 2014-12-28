@@ -37,7 +37,7 @@ public class ReleaseHistory {
 		releases = new ArrayList<ReleaseInfo>();
 		laws = new LehmanLawsRecord[numOfLaws];
 		for (int i = 0; i < numOfLaws; i++)
-			laws[i] = new LehmanLawsRecord(false, "Insert comment");
+			laws[i] = new LehmanLawsRecord(false, null);
 	 }
 	
 	/**
