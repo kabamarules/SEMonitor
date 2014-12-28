@@ -1,8 +1,10 @@
 package Models;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 public class ReleaseHistory {
 
@@ -125,12 +127,13 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getChangesData(boolean opOrDs) { 
-		ArrayList<Double> l = new ArrayList<Double>();
+	public Map<Integer, Integer> getChangesData(boolean opOrDs) { 
+		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
+		
 		for(int i = 0; i < getNumberOfReleases(); i++) {
-			l.add(new Double(getReleaseInformation(i).getChangesRecord(opOrDs).getChanges()));
+			m.put(i, new Integer(getReleaseInformation(i).getChangesRecord(opOrDs).getChanges()));
 		}
-		return l;
+		return m;
 	 }
 	
 	/**
@@ -138,7 +141,7 @@ public class ReleaseHistory {
 	 * Used in Law 1
 	 * @return 
 	 */
-	public List<Double> getVersionsPerYearData() { 
+	public Map<Integer, Integer> getVersionsPerYearData() { 
 		return null;
 	 }
 	
@@ -148,7 +151,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getComplexityData(boolean opOrDs) { 
+	public Map<Integer, Double> getComplexityData(boolean opOrDs) { 
 		return null;
 	 }
 	
@@ -157,7 +160,7 @@ public class ReleaseHistory {
 	 * Used in Law 2.
 	 * @return 
 	 */
-	public List<Double> getMaintananceActionsData() { 
+	public Map<Integer, Integer> getMaintananceActionsData() { 
 		// TODO Implement
 		return null;
 	 }
@@ -168,7 +171,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getGrowthData(boolean opOrDs) { 
+	public Map<Integer, Double> getGrowthData(boolean opOrDs) { 
 		// TODO Implement
 		return null;
 	 }
@@ -179,7 +182,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getWorkRateData(boolean opOrDs) { 
+	public Map<Integer, Double> getWorkRateData(boolean opOrDs) { 
 		// TODO Implement
 		return null;
 	 }
@@ -190,7 +193,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	public List<Double> getTotalNumberData(boolean opOrDs) { 
+	public Map<Integer, Integer> getTotalNumberData(boolean opOrDs) { 
 		// TODO Implement
 		return null;
 	 }
@@ -200,7 +203,7 @@ public class ReleaseHistory {
 	 * Used in Law 8.
 	 * @return 
 	 */
-	public List<Double> getTotalEstimatedData() { 
+	public Map<Integer, Double> getTotalEstimatedData() { 
 		// TODO Implement
 		return null;
 	 } 
