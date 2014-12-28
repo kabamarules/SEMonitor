@@ -15,6 +15,7 @@ import javax.swing.JTextPane;
 
 import Presenter.Presenter;
 
+@SuppressWarnings("serial")
 public class LawView extends View implements ActionListener {
 	
 	/**

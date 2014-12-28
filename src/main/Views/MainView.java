@@ -5,8 +5,6 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -30,8 +28,10 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 	/**
 	 * The names list of the loaded software systems data 
 	 */
+	@SuppressWarnings("rawtypes")
 	private DefaultListModel rhNames;
 
+	@SuppressWarnings("unchecked")
 	public void addRH(String name) { 
 		 rhNames.addElement(name);
 	}
@@ -45,6 +45,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		
 	} 
 
+	@SuppressWarnings("rawtypes")
 	public MainView(Presenter callbackPresenter) {
 		super(callbackPresenter);
 		rhNames = new DefaultListModel();
@@ -208,6 +209,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		SoftwareToolsListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		SoftwareToolsListScrollPane.setBounds(26, 74, 222, 365);
 	
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		JList SoftwareToolsList = new JList(rhNames);
 		SoftwareToolsList.setVisibleRowCount(100);
 		SoftwareToolsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
