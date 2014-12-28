@@ -2,7 +2,7 @@ package Models;
 
 import java.util.Date;
 
-public class ReleaseInformation {
+public class ReleaseInfo {
 
 	public static final boolean operations = true;
 	public static final boolean dataStructures = false;
@@ -35,7 +35,7 @@ public class ReleaseInformation {
 	 * @param dsData 
 	 * @param prDate 
 	 */
-	public ReleaseInformation(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
+	public ReleaseInfo(int id, Date date, ChangeRecord opChRd, ChangeRecord dsChRd, 
 			MetricsRecord opMtRd, MetricsRecord dsMtRd) {
 		this.id = id;
 		this.date = date;

@@ -1,7 +1,7 @@
 package IO;
 
 import Models.ReleaseHistory;
-import Models.ReleaseInformation;
+import Models.ReleaseInfo;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -101,9 +101,9 @@ public class RHParser {
 	         lScanner.close();
 	         
 	         // Get previous release data
-	         ReleaseInformation ri = rh.getReleaseInformation(id - 1);
-			 int opPrTot = ri.getMetricsRecord(ReleaseInformation.operations).getTotalNumber();
-			 int dsPrTot = ri.getMetricsRecord(ReleaseInformation.dataStructures).getTotalNumber();
+	         ReleaseInfo ri = rh.getReleaseInformation(id - 1);
+			 int opPrTot = ri.getMetricsRecord(ReleaseInfo.operations).getTotalNumber();
+			 int dsPrTot = ri.getMetricsRecord(ReleaseInfo.dataStructures).getTotalNumber();
 			 Date prDate = ri.getDate();
 			 
 	         rh.addRelease(id, date, op, ds, opPrTot, dsPrTot, prDate);

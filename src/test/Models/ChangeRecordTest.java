@@ -32,10 +32,10 @@ public class ChangeRecordTest {
 	@Test
 	public void testGetAdditions() {
 		for (int i = 0; i < 20; i++) {
-			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.operations).getAdditions();
+			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInfo.operations).getAdditions();
 			assertEquals("Wrong number of operations additions in release " + (i + 1), opAdd[i], op);
 			
-			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.dataStructures).getAdditions();
+			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInfo.dataStructures).getAdditions();
 			assertEquals("Wrong number of DS additions in release " + (i + 1), dsAdd[i], ds);
 		}
 	}
@@ -43,10 +43,10 @@ public class ChangeRecordTest {
 	@Test
 	public void testGetDeletions() {
 		for (int i = 0; i < 20; i++) {
-			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.operations).getDeletions();
+			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInfo.operations).getDeletions();
 			assertEquals("Wrong number of operations deletion in release " + (i + 1), opDel[i], op);
 			
-			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.dataStructures).getDeletions();
+			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInfo.dataStructures).getDeletions();
 			assertEquals("Wrong number of DS deletions in release " + (i + 1), dsDel[i], ds);
 		}
 	}
@@ -54,10 +54,10 @@ public class ChangeRecordTest {
 	@Test
 	public void testGetChanges() {
 		for (int i = 0; i < 20; i++) {
-			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.operations).getChanges();
+			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInfo.operations).getChanges();
 			assertEquals("Wrong number of operations changes in release " + (i + 1), opChg[i], op);
 			
-			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.dataStructures).getChanges();
+			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInfo.dataStructures).getChanges();
 			assertEquals("Wrong number of DS changes in release " + (i + 1), dsChg[i], ds);
 		}
 	}
