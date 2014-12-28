@@ -54,14 +54,17 @@ public class MetricsRecord {
 	
 	/**
 	 * Returns the complexity of the current release
+	 * If the additions are zero it divides by 1.
 	 * @return 
 	 */
 	public double getComplexity() { 
-		return ((double)changeRecord.getChanges() + (double)changeRecord.getDeletions())/(double)changeRecord.getAdditions();
+		double divider = changeRecord.getAdditions() > 0 ? (double)changeRecord.getAdditions() : 1;
+		return ((double)changeRecord.getChanges() + (double)changeRecord.getDeletions()) / divider;
 	 }
 	
 	/**
 	 * Returns the task rate of the current release
+	 * If the elapsed time is 0 returns zero
 	 * @return 
 	 */
 	public double getTaskRate() { 
