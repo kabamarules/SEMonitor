@@ -130,7 +130,7 @@ public class ReleaseHistory {
 	public Map<Integer, Integer> getChangesData(boolean opOrDs) { 
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
 		
-		for(int i = 0; i < getNumberOfReleases(); i++) {
+		for(int i = 1; i <= getNumberOfReleases(); i++) {
 			ReleaseInfo rh = getReleaseByID(i);
 			m.put(rh.getId(), rh.getChangesRecord(opOrDs).getChanges());
 		}
