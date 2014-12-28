@@ -13,9 +13,9 @@ import IO.RHParser;
 public class ChangeRecordTest {
 
 	private static ReleaseHistory rh;
-	private static int[] opAdd = {21, 2, 2, 2, 1, 0, 5, 1, 0, 1, 0, 5, 0, 0, 1, 0, 0, 2, 3, 3};
+	private static int[] opAdd = {0, 2, 2, 2, 1, 0, 5, 1, 0, 1, 0, 5, 0, 0, 1, 0, 0, 2, 3, 3};
 	private static int[] opDel = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 2, 0};
-	private static int[] dsAdd = {105, 9, 9, 12, 4, 0, 21, 5, 0, 4, 0, 21, 0, 0, 6, 0, 0, 9, 20, 14};
+	private static int[] dsAdd = {0, 9, 9, 12, 4, 0, 21, 5, 0, 4, 0, 21, 0, 0, 6, 0, 0, 9, 20, 14};
 	private static int[] dsDel = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 5, 0};
 	private static int[] opChg = {0, 9, 5, 8, 8, 0, 6, 1, 0, 4, 0, 35, 0, 0, 1, 0, 0, 1, 5, 7};
 	private static int[] dsChg = {0, 23, 10, 19, 20, 0, 14, 4, 0, 11, 0, 36, 0, 0, 3, 0, 1, 3, 13, 17};
