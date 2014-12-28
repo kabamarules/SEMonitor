@@ -34,29 +34,13 @@ public class Presenter{
 	 	 return releaseHistories; 
 	}
 	
-	public void setReleaseHistories(List<ReleaseHistory> releaseHistories) { 
-		 this.releaseHistories = releaseHistories; 
-	}
-	
-	public Integer getSelectedRH() {
-	 	 return selectedRH; 
-	}
-	
 	public void setSelectedRH(int selectedRH) { 
 		 this.selectedRH = selectedRH; 
 	}
 	
-	public int getSelectedLaw() {
-	 	 return selectedLaw; 
-	}
-	
-	public void setSelectedLaw(Integer selectedLaw) { 
+	public void setSelectedLaw(int selectedLaw) { 
 		 this.selectedLaw = selectedLaw; 
 	}
-
-	public void selectRH(Integer rhIndex) { 
-		// TODO Auto-generated method
-	 } 
 	
 	/**
 	 * Main view callback function for opening a new file and 
@@ -94,7 +78,7 @@ public class Presenter{
 			infoBox("Σφάλμα", "Παρακαλώ επιλέξτε ένα ιστορικό από τη λίστα.");
 			return;
 		}
-		selectedLaw = lawIndex;
+		setSelectedLaw(lawIndex);
 		
 		lawView.setLawNumber(lawIndex);
 		ReleaseHistory rh = releaseHistories.get(selectedRH);
