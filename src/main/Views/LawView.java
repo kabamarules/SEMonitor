@@ -111,7 +111,7 @@ public class LawView extends View implements ActionListener {
 		
 		int[][] bounds = { 
 				{30, 35, 250, 150},
-				{30, 195, 250, 150},
+				{30, 190, 250, 150},
 				{30, 345, 250, 150}
 		};
 		for (int i = 0; i < graphs.size(); i++) {
