@@ -36,7 +36,7 @@ public class LawView extends View implements ActionListener {
 	/**
 	 * The graph data to be presented
 	 */
-	private List<Double> graphData;
+	private List<List<Double>> graphData;
 	
 	/**
 	 * The previous validity and comment if existing
@@ -80,8 +80,8 @@ public class LawView extends View implements ActionListener {
 		 lawNumber = n; 
 	}
 	
-	public void setGraphData(List<Double> gd) { 
-		 graphData = gd; 
+	public void setGraphData(List<List<Double>> gd) { 
+		 graphData = gd;
 	}
 	
 	public void setValidity(boolean v) {
