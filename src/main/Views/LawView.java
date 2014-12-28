@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextPane;
 
@@ -37,7 +38,7 @@ public class LawView extends View implements ActionListener {
 	/**
 	 * The graph data to be presented
 	 */
-	private List<List<Double>> graphData;
+	private List<JPanel> graphPanels;
 	
 	/**
 	 * The previous validity and comment if existing
@@ -81,8 +82,8 @@ public class LawView extends View implements ActionListener {
 		 lawNumber = n; 
 	}
 	
-	public void setGraphData(List<List<Double>> gd) { 
-		 graphData = gd;
+	public void setGraphPanels(List<JPanel> gd) { 
+		 graphPanels = gd;
 	}
 	
 	public void setValidity(boolean v) {

@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import Views.MainView;
 import Views.LawView;
@@ -84,7 +85,7 @@ public class Presenter{
 		ReleaseHistory rh = releaseHistories.get(selectedRH);
 		lawView.setValidity(rh.getLawValidity(selectedLaw));
 		lawView.setComment(rh.getLawComment(selectedLaw));
-		lawView.setGraphData(rh.getLawGraphData(selectedLaw));
+		lawView.setGraphPanels(new ArrayList<JPanel>());
 		lawView.redraw();
 		
 		mainView.hide();
