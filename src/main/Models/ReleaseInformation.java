@@ -61,6 +61,13 @@ public class ReleaseInformation {
 	}
 	
 	/**
+	 * Generic getter of the Changes
+	 */
+	public ChangeRecord getChanges(boolean opOrDs) { 
+		return opOrDs ? changeRecords[0] : changeRecords[1];
+	 }
+	
+	/**
 	 * Getter of the Operation Changes
 	 */
 	public ChangeRecord getOperationChanges() { 
@@ -72,6 +79,13 @@ public class ReleaseInformation {
 	 */
 	public ChangeRecord getDSChanges() { 
 		return changeRecords[1];
+	 }
+	
+	/**
+	 * Generic getter of metrics
+	 */
+	public MetricsRecord getMetrics(boolean opOrDs) { 
+		return opOrDs ? metricsRecords[0] : metricsRecords[1];
 	 }
 	
 	/**
