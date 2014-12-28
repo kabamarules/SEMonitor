@@ -75,7 +75,7 @@ public class ReleaseHistory {
 	 * @param releaseID >= 1
 	 * @return 
 	 */
-	public ReleaseInfo getReleaseInformation(int releaseID) { 
+	public ReleaseInfo getReleaseByID(int releaseID) { 
 		return releases.get(releaseID - 1);
 	 }
 	
@@ -131,7 +131,7 @@ public class ReleaseHistory {
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
 		
 		for(int i = 0; i < getNumberOfReleases(); i++) {
-			ReleaseInfo rh = getReleaseInformation(i);
+			ReleaseInfo rh = getReleaseByID(i);
 			m.put(rh.getId(), rh.getChangesRecord(opOrDs).getChanges());
 		}
 		return m;

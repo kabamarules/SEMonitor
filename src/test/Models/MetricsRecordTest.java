@@ -34,11 +34,11 @@ public class MetricsRecordTest {
 		
 		for (int i = 0; i < 20; i++) {
 			inOp += opAdd[i] - opDel[i];
-			int op = rh.getReleaseInformation(i + 1).getMetricsRecord(ReleaseInfo.operations).getTotalNumber(); // numbering from 1
+			int op = rh.getReleaseByID(i + 1).getMetricsRecord(ReleaseInfo.operations).getTotalNumber(); // numbering from 1
 			assertEquals("Wrong number of total operations in release " + (i + 1), inOp, op);
 			
 			inDS += dsAdd[i] - dsDel[i];
-			int ds = rh.getReleaseInformation(i + 1).getMetricsRecord(ReleaseInfo.dataStructures).getTotalNumber(); // numbering from 1
+			int ds = rh.getReleaseByID(i + 1).getMetricsRecord(ReleaseInfo.dataStructures).getTotalNumber(); // numbering from 1
 			assertEquals("Wrong number of total DS in release " + (i + 1), inDS, ds);
 		}
 	}
