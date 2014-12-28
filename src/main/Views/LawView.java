@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -83,7 +84,11 @@ public class LawView extends View implements ActionListener {
 	}
 	
 	public void setGraphs(List<JPanel> gd) { 
-		 graphs = gd;
+		// First removing the old panels from the GUI
+		for (int i = 0; i < graphs.size(); i++) {
+			remove(graphs.get(i));
+		}
+		graphs = gd;
 	}
 	
 	public void setValidity(boolean v) {
@@ -103,6 +108,20 @@ public class LawView extends View implements ActionListener {
 		txtLawDescription.setText(lawDescriptions[lawNumber]);
 		selectRadioButton(validity);
 		txtUserComments.setText(comment);
+		
+		int[][] bounds = { 
+				{30, 35, 250, 150},
+				{30, 195, 250, 150},
+				{30, 345, 250, 150}
+		};
+		for (int i = 0; i < graphs.size(); i++) {
+			graphs.get(i).setBounds(bounds[i][0], bounds[i][1], bounds[i][2], bounds[i][3]);
+			add(graphs.get(i));
+			graphs.get(i).revalidate();
+			graphs.get(i).repaint();
+		}
+		revalidate();
+		repaint();
 	} 
 
 	private void selectRadioButton(boolean validity) {
@@ -114,6 +133,8 @@ public class LawView extends View implements ActionListener {
 	
 	public LawView(Presenter callbackPresenter) {
 		super(callbackPresenter);
+		graphs = new ArrayList<JPanel>();
+		
 		initializeView();
 	}
 	
@@ -139,7 +160,7 @@ public class LawView extends View implements ActionListener {
 		setBounds(10, 10, 620, 500);
 		setLayout(null);
 		
-		lblLawName = new JLabel("Xος Νόμος");
+		lblLawName = new JLabel();
 		lblLawName.setBounds(237, 6, 99, 22);
 		lblLawName.setFont(new Font("Lucida Grande", Font.BOLD, 18));
 		lblLawName.setBackground(new Color(238, 238, 238));
@@ -149,7 +170,6 @@ public class LawView extends View implements ActionListener {
 		txtLawDescription.setEditable(false);
 		txtLawDescription.setBackground(SystemColor.window);
 		txtLawDescription.setBounds(313, 88, 265, 168);
-		txtLawDescription.setText("");
 		add(txtLawDescription);
 		
 		JLabel lblLawDescription = new JLabel("Περιγραφή ισχύος του νόμου:");
@@ -161,7 +181,6 @@ public class LawView extends View implements ActionListener {
 		add(radioBtnLawFalse);
 		
 		radioBtnLawTrue = new JRadioButton("Ισχύει");
-		radioBtnLawTrue.setSelected(true);
 		radioBtnLawTrue.setBounds(322, 268, 107, 23);
 		add(radioBtnLawTrue);
 		
