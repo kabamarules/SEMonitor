@@ -15,7 +15,7 @@ public class RHParserTest {
 	public void testReadingCorrectFile() {
 		try {
 			ReleaseHistory rh = RHParser.getReleaseHistory("src/test/resources/AmazonMechTurk.txt");
-			assertEquals("Wrong number of releases", 20, rh.getReleases().size());
+			assertEquals("Wrong number of releases", 20, rh.getNumberOfReleases());
 		} catch (IOException e) {
 			  fail("Threw Exception: " + e.toString());
 		} catch (ParseException e) {

@@ -68,14 +68,6 @@ public class ReleaseHistory {
 	}
 	
 	/**
-	 * Alternative way of adding a release to the history
-	 * @param ri
-	 */
-	public void addRelease(ReleaseInformation ri) {
-		releases.add(ri);
-	}
-	
-	/**
 	 * Gets a release by id.
 	 * Initial release has id 1.
 	 * @param releaseID 
@@ -85,11 +77,8 @@ public class ReleaseHistory {
 		return releases.get(releaseID - 1);
 	 }
 	
-	/**
-	 * Getter of all the releases
-	 */
-	public List<ReleaseInformation> getReleases() {
-	 	 return releases; 
+	public int getNumberOfReleases() {
+	 	 return releases.size(); 
 	}
 	
 	/**
