@@ -21,20 +21,11 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import Models.LehmanLawsRecord;
 import Presenter.Presenter;
 
 @SuppressWarnings("serial")
 public class MainView extends View implements ActionListener, ListSelectionListener{
-
-	// Constants, we don't like magic numbers
-	private final int LAW_1 = 0;
-	private final int LAW_2 = 1;
-	private final int LAW_3 = 2;
-	private final int LAW_4 = 3;
-	private final int LAW_5 = 4;
-	private final int LAW_6 = 5;
-	private final int LAW_7 = 6;
-	private final int LAW_8 = 7;
 
 	/**
 	 * The names list of the loaded software systems data 
@@ -71,28 +62,28 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 				callbackPresenter.createNewRH();
 				break;
 			case "law1":
-				callbackPresenter.evaluateLaw(LAW_1);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_1);
 				break;
 			case "law2":
-				callbackPresenter.evaluateLaw(LAW_2);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_2);
 				break;
 			case "law3":
-				callbackPresenter.evaluateLaw(LAW_3);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_3);
 				break;
 			case "law4":
-				callbackPresenter.evaluateLaw(LAW_4);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_4);
 				break;
 			case "law5":
-				callbackPresenter.evaluateLaw(LAW_5);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_5);
 				break;
 			case "law6":
-				callbackPresenter.evaluateLaw(LAW_6);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_6);
 				break;
 			case "law7":
-				callbackPresenter.evaluateLaw(LAW_7);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_7);
 				break;
 			case "law8":
-				callbackPresenter.evaluateLaw(LAW_8);
+				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_8);
 				break;
 			case "createReport":
             default: 
