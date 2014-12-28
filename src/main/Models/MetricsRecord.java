@@ -76,7 +76,7 @@ public class MetricsRecord {
 	 * Returns the elapsed time in days since the last release
 	 */
 	private double getTimeSinceLastRelease() { 
-        double diff = previousDate.getTime() - changeRecord.getDate().getTime();
+        double diff = changeRecord.getDate().getTime() - previousDate.getTime();
         return diff / 1000.0 / 60.0 / 60.0 / 24.0;
 	 } 
 	
