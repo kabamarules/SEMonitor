@@ -9,10 +9,7 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -36,14 +33,14 @@ public class Grapher {
 		
 		switch (lawNumber) {
 			case LehmanLawsRecord.LAW_1:
-				graphs.add(barChart(rh.getChangesData(ReleaseInfo.operations)));
-				graphs.add(barChart(rh.getChangesData(ReleaseInfo.dataStructures)));
-				graphs.add(barChart(rh.getVersionsPerYearData()));
+				graphs.add(barChart(rh.getChangesData(ReleaseInfo.operations), "Operation changes"));
+				graphs.add(barChart(rh.getChangesData(ReleaseInfo.dataStructures), "DS Changes"));
+				graphs.add(barChart(rh.getVersionsPerYearData(), "Version per year"));
 				break;
 			case LehmanLawsRecord.LAW_2:
 				graphs.add(lineChart(rh.getComplexityData(ReleaseInfo.operations), "Operations Complexity"));
 				graphs.add(lineChart(rh.getComplexityData(ReleaseInfo.dataStructures), "DS Complexity"));
-				graphs.add(barChart(rh.getMaintenanceActionsData()));
+				graphs.add(barChart(rh.getMaintenanceActionsData(), "Maintenance actions"));
 				break;
 			case LehmanLawsRecord.LAW_3:
 				graphs.add(lineChart(rh.getGrowthData(ReleaseInfo.operations), "Operations Growth"));
@@ -72,16 +69,14 @@ public class Grapher {
 		return graphs;
 	 }
 	
-	//private static final String[][] titleY = { {""} };
-
-	private static JPanel barChart(Map<? extends Number, ? extends Number> data) {
+	private static JPanel barChart(Map<? extends Number, ? extends Number> data, String title) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         dataset.setValue(6, "Profit", "Jane");
         dataset.setValue(7, "Profit", "Tom");
         dataset.setValue(8, "Profit", "Jill");
         dataset.setValue(5, "Profit", "John");
         dataset.setValue(12, "Profit", "Fred");
-        JFreeChart chart = ChartFactory.createBarChart("Comparison between Salesman",
+        JFreeChart chart = ChartFactory.createBarChart(title,
         "Salesman", "Profit", dataset, PlotOrientation.VERTICAL,
         false, false, false);
         
@@ -99,10 +94,7 @@ public class Grapher {
         dataset.addSeries(series);
 
         JFreeChart chart = ChartFactory.createXYLineChart(
-            title,
-            "",
-            "",
-            dataset,
+            title, "", "", dataset,
             PlotOrientation.VERTICAL,  // Plot Orientation
             false,                      // Show Legend
             false,                      // Use tooltips
