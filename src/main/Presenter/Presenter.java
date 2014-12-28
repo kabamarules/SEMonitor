@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import Views.MainView;
 import Views.LawView;
+import IO.Grapher;
 import IO.RHParser;
 
 @SuppressWarnings("deprecation")
@@ -85,7 +86,7 @@ public class Presenter{
 		ReleaseHistory rh = releaseHistories.get(selectedRH);
 		lawView.setValidity(rh.getLawValidity(selectedLaw));
 		lawView.setComment(rh.getLawComment(selectedLaw));
-		lawView.setGraphPanels(new ArrayList<JPanel>());
+		lawView.setGraphPanels(Grapher.getLawGraphs(rh, selectedLaw));
 		lawView.redraw();
 		
 		mainView.hide();
