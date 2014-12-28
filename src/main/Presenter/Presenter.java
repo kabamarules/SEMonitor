@@ -5,21 +5,18 @@ import Models.ReleaseHistory;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import Views.MainView;
 import Views.LawView;
 import IO.RHParser;
 
+@SuppressWarnings("deprecation")
 public class Presenter{
 
 	/** 
