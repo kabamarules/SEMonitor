@@ -35,7 +35,7 @@ public class Grapher {
 			case LehmanLawsRecord.LAW_1:
 				graphs.add(barChart(rh.getChangesData(ReleaseInfo.operations), "Operation changes"));
 				graphs.add(barChart(rh.getChangesData(ReleaseInfo.dataStructures), "DS Changes"));
-				graphs.add(barChart(rh.getVersionsPerYearData(), "Version per year"));
+				//graphs.add(barChart(rh.getVersionsPerYearData(), "Version per year"));
 				break;
 			case LehmanLawsRecord.LAW_2:
 				graphs.add(lineChart(rh.getComplexityData(ReleaseInfo.operations), "Operations Complexity"));
@@ -63,7 +63,7 @@ public class Grapher {
 				break;
 			case LehmanLawsRecord.LAW_8:
 				graphs.add(lineChart(rh.getTotalNumberData(ReleaseInfo.operations), "Total operations"));
-				graphs.add(lineChart(rh.getTotalEstimatedData(), "Estimated operations"));
+				//graphs.add(lineChart(rh.getTotalEstimatedData(), "Estimated operations"));
 				break;
 		}
 		return graphs;
@@ -71,13 +71,12 @@ public class Grapher {
 	
 	private static JPanel barChart(Map<? extends Number, ? extends Number> data, String title) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.setValue(6, "Profit", "Jane");
-        dataset.setValue(7, "Profit", "Tom");
-        dataset.setValue(8, "Profit", "Jill");
-        dataset.setValue(5, "Profit", "John");
-        dataset.setValue(12, "Profit", "Fred");
+        
+        for (Map.Entry<? extends Number, ? extends Number> entry : data.entrySet()) {
+            dataset.setValue(entry.getValue(), "id", (Comparable) entry.getKey());
+        }        
         JFreeChart chart = ChartFactory.createBarChart(title,
-        "Salesman", "Profit", dataset, PlotOrientation.VERTICAL,
+        "", "", dataset, PlotOrientation.VERTICAL,
         false, false, false);
         
         ChartPanel chartPanel = new ChartPanel(chart);
