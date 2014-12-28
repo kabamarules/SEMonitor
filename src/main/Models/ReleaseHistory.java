@@ -118,61 +118,14 @@ public class ReleaseHistory {
 	public LehmanLawsRecord[] getLaws() {
 	 	 return laws; 
 	}
-	
-	/**
-	 * Gets the graph data for a law.
-	 * The return value might be of different dimensionality according to the law number.
-	 * @param lawNumber 
-	 * @return 
-	 */
-	public List<List<Double>> getLawGraphData(int lawNumber) { 
-		List<List<Double>> graphList = new ArrayList<List<Double>>();
-		
-		switch (lawNumber) {
-			case LehmanLawsRecord.LAW_1:
-				graphList.add(getChangesData(ReleaseInfo.operations));
-				graphList.add(getChangesData(ReleaseInfo.dataStructures));
-				graphList.add(getVersionsPerYearData());
-				break;
-			case LehmanLawsRecord.LAW_2:
-				graphList.add(getComplexityData(ReleaseInfo.operations));
-				graphList.add(getComplexityData(ReleaseInfo.dataStructures));
-				graphList.add(getMaintananceActionsData());
-				break;
-			case LehmanLawsRecord.LAW_3:
-				graphList.add(getGrowthData(ReleaseInfo.operations));
-				graphList.add(getGrowthData(ReleaseInfo.dataStructures));
-				break;
-			case LehmanLawsRecord.LAW_4:
-				graphList.add(getWorkRateData(ReleaseInfo.operations));
-				graphList.add(getWorkRateData(ReleaseInfo.dataStructures));
-				break;
-			case LehmanLawsRecord.LAW_5:
-				graphList.add(getGrowthData(ReleaseInfo.operations));
-				graphList.add(getGrowthData(ReleaseInfo.dataStructures));
-				break;
-			case LehmanLawsRecord.LAW_6:
-				graphList.add(getTotalNumberData(ReleaseInfo.operations));
-				graphList.add(getTotalNumberData(ReleaseInfo.dataStructures));
-				break;
-			case LehmanLawsRecord.LAW_7:
-				// No graphs
-				break;
-			case LehmanLawsRecord.LAW_8:
-				graphList.add(getTotalNumberData(ReleaseInfo.operations));
-				graphList.add(getTotalEstimatedData());
-				break;
-		}
-		return graphList;
-	 }
-	
+
 	/**
 	 * Returns the data for the changes graph.
 	 * Used in Law 1.
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private List<Double> getChangesData(boolean opOrDs) { 
+	public List<Double> getChangesData(boolean opOrDs) { 
 		ArrayList<Double> l = new ArrayList<Double>();
 		for(int i = 0; i < getNumberOfReleases(); i++) {
 			l.add(new Double(getReleaseInformation(i).getChangesRecord(opOrDs).getChanges()));
@@ -185,7 +138,7 @@ public class ReleaseHistory {
 	 * Used in Law 1
 	 * @return 
 	 */
-	private List<Double> getVersionsPerYearData() { 
+	public List<Double> getVersionsPerYearData() { 
 		return null;
 	 }
 	
@@ -195,7 +148,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private List<Double> getComplexityData(boolean opOrDs) { 
+	public List<Double> getComplexityData(boolean opOrDs) { 
 		return null;
 	 }
 	
@@ -204,7 +157,7 @@ public class ReleaseHistory {
 	 * Used in Law 2.
 	 * @return 
 	 */
-	private List<Double> getMaintananceActionsData() { 
+	public List<Double> getMaintananceActionsData() { 
 		// TODO Implement
 		return null;
 	 }
@@ -215,7 +168,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private List<Double> getGrowthData(boolean opOrDs) { 
+	public List<Double> getGrowthData(boolean opOrDs) { 
 		// TODO Implement
 		return null;
 	 }
@@ -226,7 +179,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private List<Double> getWorkRateData(boolean opOrDs) { 
+	public List<Double> getWorkRateData(boolean opOrDs) { 
 		// TODO Implement
 		return null;
 	 }
@@ -237,7 +190,7 @@ public class ReleaseHistory {
 	 * @param opOrDs Chooses between operation or data structure graph data
 	 * @return 
 	 */
-	private List<Double> getTotalNumberData(boolean opOrDs) { 
+	public List<Double> getTotalNumberData(boolean opOrDs) { 
 		// TODO Implement
 		return null;
 	 }
@@ -247,7 +200,7 @@ public class ReleaseHistory {
 	 * Used in Law 8.
 	 * @return 
 	 */
-	private List<Double> getTotalEstimatedData() { 
+	public List<Double> getTotalEstimatedData() { 
 		// TODO Implement
 		return null;
 	 } 
