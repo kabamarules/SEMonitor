@@ -103,7 +103,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 	}
 	
 	private void initializeView() {
-		setBounds(10, 10, 620, 500);
+		setBounds(5, 5, 630, 525);
 		setLayout(null);
 		
 		JPanel MainButtonsPanel = new JPanel();

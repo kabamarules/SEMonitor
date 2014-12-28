@@ -123,7 +123,6 @@ public class Presenter{
 		
 		initializeFrame();
 		lawView = new LawView(this);
-		lawView.setBounds(10, 10, 620, 502);
 		frmSEMonitor.getContentPane().add(lawView);
 		lawView.hide();
 		
@@ -137,7 +136,7 @@ public class Presenter{
 	private void initializeFrame() {
 		frmSEMonitor = new JFrame();
 		frmSEMonitor.setTitle("Software Evolution Monitor Tool");
-		frmSEMonitor.setSize(new Dimension(640, 540));
+		frmSEMonitor.setSize(new Dimension(640, 557));
 		frmSEMonitor.setResizable(false);
 		frmSEMonitor.getContentPane().setBackground(new Color(0, 0, 64));
 		frmSEMonitor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

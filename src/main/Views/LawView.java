@@ -110,9 +110,9 @@ public class LawView extends View implements ActionListener {
 		txtUserComments.setText(comment);
 		
 		int[][] bounds = { 
-				{30, 35, 250, 150},
-				{30, 190, 250, 150},
-				{30, 345, 250, 150}
+				{15, 35, 300, 150},
+				{15, 190, 300, 150},
+				{15, 345, 300, 150}
 		};
 		for (int i = 0; i < graphs.size(); i++) {
 			graphs.get(i).setBounds(bounds[i][0], bounds[i][1], bounds[i][2], bounds[i][3]);
@@ -157,7 +157,7 @@ public class LawView extends View implements ActionListener {
 	}
 	
 	private void initializeView() {
-		setBounds(10, 10, 620, 500);
+		setBounds(5, 5, 630, 525);
 		setLayout(null);
 		
 		lblLawName = new JLabel();
@@ -169,19 +169,19 @@ public class LawView extends View implements ActionListener {
 		txtLawDescription = new JTextPane();
 		txtLawDescription.setEditable(false);
 		txtLawDescription.setBackground(SystemColor.window);
-		txtLawDescription.setBounds(313, 88, 265, 168);
+		txtLawDescription.setBounds(349, 69, 252, 206);
 		add(txtLawDescription);
 		
 		JLabel lblLawDescription = new JLabel("Περιγραφή ισχύος του νόμου:");
-		lblLawDescription.setBounds(313, 60, 204, 16);
+		lblLawDescription.setBounds(349, 45, 204, 16);
 		add(lblLawDescription);
 		
 		radioBtnLawFalse = new JRadioButton("Δεν ισχύει");
-		radioBtnLawFalse.setBounds(430, 268, 99, 23);
+		radioBtnLawFalse.setBounds(467, 287, 99, 23);
 		add(radioBtnLawFalse);
 		
 		radioBtnLawTrue = new JRadioButton("Ισχύει");
-		radioBtnLawTrue.setBounds(322, 268, 107, 23);
+		radioBtnLawTrue.setBounds(359, 287, 107, 23);
 		add(radioBtnLawTrue);
 		
 		ButtonGroup group = new ButtonGroup();
@@ -190,20 +190,20 @@ public class LawView extends View implements ActionListener {
 	    
 		txtUserComments = new JTextPane();
 		txtUserComments.setBackground(Color.WHITE);
-		txtUserComments.setBounds(312, 339, 265, 114);
+		txtUserComments.setBounds(348, 348, 253, 105);
 		add(txtUserComments);
 		
 		JLabel lblUserComments = new JLabel("Σχόλια & παρατηρήσεις χρήστη:");
-		lblUserComments.setBounds(312, 315, 230, 16);
+		lblUserComments.setBounds(349, 322, 230, 16);
 		add(lblUserComments);
 		
 		JButton btnApotimisi = new JButton("Αποτίμηση Νόμου");
-		btnApotimisi.setBounds(312, 465, 152, 29);
+		btnApotimisi.setBounds(349, 465, 142, 29);
 		btnApotimisi.setActionCommand("saveEvaluation");
 		add(btnApotimisi);
 		
 		JButton btnBack = new JButton("Επιστροφή");
-		btnBack.setBounds(461, 465, 117, 29);
+		btnBack.setBounds(484, 465, 117, 29);
 		btnBack.setActionCommand("goBack");
 		add(btnBack);
 		
