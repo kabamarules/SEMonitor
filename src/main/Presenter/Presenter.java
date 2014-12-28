@@ -86,7 +86,7 @@ public class Presenter{
 		ReleaseHistory rh = releaseHistories.get(selectedRH);
 		lawView.setValidity(rh.getLawValidity(selectedLaw));
 		lawView.setComment(rh.getLawComment(selectedLaw));
-		lawView.setGraphPanels(Grapher.getLawGraphs(rh, selectedLaw));
+		lawView.setGraphs(Grapher.getLawGraphs(rh, selectedLaw));
 		lawView.redraw();
 		
 		mainView.hide();

@@ -38,7 +38,7 @@ public class LawView extends View implements ActionListener {
 	/**
 	 * The graph data to be presented
 	 */
-	private List<JPanel> graphPanels;
+	private List<JPanel> graphs;
 	
 	/**
 	 * The previous validity and comment if existing
@@ -82,8 +82,8 @@ public class LawView extends View implements ActionListener {
 		 lawNumber = n; 
 	}
 	
-	public void setGraphPanels(List<JPanel> gd) { 
-		 graphPanels = gd;
+	public void setGraphs(List<JPanel> gd) { 
+		 graphs = gd;
 	}
 	
 	public void setValidity(boolean v) {
