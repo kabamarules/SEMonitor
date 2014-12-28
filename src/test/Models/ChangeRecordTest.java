@@ -32,10 +32,10 @@ public class ChangeRecordTest {
 	@Test
 	public void testGetAdditions() {
 		for (int i = 0; i < 20; i++) {
-			int op = rh.getReleaseInformation(i + 1).getOperationChanges().getAdditions();
+			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.operations).getAdditions();
 			assertEquals("Wrong number of operations additions in release " + (i + 1), opAdd[i], op);
 			
-			int ds = rh.getReleaseInformation(i + 1).getDSChanges().getAdditions();
+			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.dataStructures).getAdditions();
 			assertEquals("Wrong number of DS additions in release " + (i + 1), dsAdd[i], ds);
 		}
 	}
@@ -43,10 +43,10 @@ public class ChangeRecordTest {
 	@Test
 	public void testGetDeletions() {
 		for (int i = 0; i < 20; i++) {
-			int op = rh.getReleaseInformation(i + 1).getOperationChanges().getDeletions();
+			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.operations).getDeletions();
 			assertEquals("Wrong number of operations deletion in release " + (i + 1), opDel[i], op);
 			
-			int ds = rh.getReleaseInformation(i + 1).getDSChanges().getDeletions();
+			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.dataStructures).getDeletions();
 			assertEquals("Wrong number of DS deletions in release " + (i + 1), dsDel[i], ds);
 		}
 	}
@@ -54,10 +54,10 @@ public class ChangeRecordTest {
 	@Test
 	public void testGetChanges() {
 		for (int i = 0; i < 20; i++) {
-			int op = rh.getReleaseInformation(i + 1).getOperationChanges().getChanges();
+			int op = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.operations).getChanges();
 			assertEquals("Wrong number of operations changes in release " + (i + 1), opChg[i], op);
 			
-			int ds = rh.getReleaseInformation(i + 1).getDSChanges().getChanges();
+			int ds = rh.getReleaseInformation(i + 1).getChangesRecord(ReleaseInformation.dataStructures).getChanges();
 			assertEquals("Wrong number of DS changes in release " + (i + 1), dsChg[i], ds);
 		}
 	}

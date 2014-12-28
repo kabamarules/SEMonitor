@@ -102,8 +102,8 @@ public class RHParser {
 	         
 	         // Get previous release data
 	         ReleaseInformation ri = rh.getReleaseInformation(id - 1);
-			 int opPrTot = ri.getOperationMetrics().getTotalNumber();
-			 int dsPrTot = ri.getDSMetrics().getTotalNumber();
+			 int opPrTot = ri.getMetricsRecord(ReleaseInformation.operations).getTotalNumber();
+			 int dsPrTot = ri.getMetricsRecord(ReleaseInformation.dataStructures).getTotalNumber();
 			 Date prDate = ri.getDate();
 			 
 	         rh.addRelease(id, date, op, ds, opPrTot, dsPrTot, prDate);

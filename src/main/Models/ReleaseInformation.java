@@ -66,44 +66,17 @@ public class ReleaseInformation {
 	/**
 	 * Generic getter of the Changes
 	 */
-	public ChangeRecord getChanges(boolean opOrDs) { 
+	public ChangeRecord getChangesRecord(boolean opOrDs) { 
 		return opOrDs ? changeRecords[0] : changeRecords[1];
-	 }
-	
-	/**
-	 * Getter of the Operation Changes
-	 */
-	public ChangeRecord getOperationChanges() { 
-		return changeRecords[0];
-	 }
-	
-	/**
-	 * Getter of the Data Structure Changes
-	 */
-	public ChangeRecord getDSChanges() { 
-		return changeRecords[1];
 	 }
 	
 	/**
 	 * Generic getter of metrics
 	 */
-	public MetricsRecord getMetrics(boolean opOrDs) { 
+	public MetricsRecord getMetricsRecord(boolean opOrDs) { 
 		return opOrDs ? metricsRecords[0] : metricsRecords[1];
 	 }
 	
-	/**
-	 * Getter of the Operation Metrics
-	 */
-	public MetricsRecord getOperationMetrics() { 
-		return metricsRecords[0];
-	 }
-	
-	/**
-	 * Getter of the DSMetrics
-	 */
-	public MetricsRecord getDSMetrics() { 
-		return metricsRecords[1];
-	 } 
 
 	@Override
 	public String toString() {
