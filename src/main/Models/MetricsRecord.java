@@ -67,7 +67,7 @@ public class MetricsRecord {
 	 * If the elapsed time is 0 returns zero
 	 * @return 
 	 */
-	public double getTaskRate() { 
+	public double getWorkRate() { 
 		double allChanges = (double)(changeRecord.getChanges() + changeRecord.getDeletions() + changeRecord.getAdditions());
 		return getTimeSinceLastRelease() == 0 ? 0 : allChanges / getTimeSinceLastRelease();
 	}
@@ -83,6 +83,6 @@ public class MetricsRecord {
 	@Override
 	public String toString() {
 		return "Total/Growth/Compl/TaskRate: " + getTotalNumber() + "," + getGrowthRate() + "," + getComplexity() +
-				"," + getTaskRate();
+				"," + getWorkRate();
 	}
 }
