@@ -100,8 +100,10 @@ public class Presenter{
 		selectedLaw = lawIndex;
 		
 		lawView.setLawNumber(lawIndex);
-		lawView.setValidity(releaseHistories.get(selectedRH).getLawValidity(selectedLaw));
-		lawView.setComment(releaseHistories.get(selectedRH).getLawComment(selectedLaw));
+		ReleaseHistory rh = releaseHistories.get(selectedRH);
+		lawView.setValidity(rh.getLawValidity(selectedLaw));
+		lawView.setComment(rh.getLawComment(selectedLaw));
+		lawView.setGraphData(rh.getLawGraphData(selectedLaw));
 		lawView.redraw();
 		
 		mainView.hide();
