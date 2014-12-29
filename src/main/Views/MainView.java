@@ -88,8 +88,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 				break;
 			case "createReport":
 				callbackPresenter.createReport();
-            default: 
-            	Presenter.infoBox("Triggered Action", e.getActionCommand());
+				break;
 		}
 	}
 	
