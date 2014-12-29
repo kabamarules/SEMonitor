@@ -16,6 +16,7 @@ import Views.MainView;
 import Views.LawView;
 import IO.Grapher;
 import IO.RHParser;
+import IO.ReportGenerator;
 
 @SuppressWarnings("deprecation")
 public class Presenter{
@@ -52,14 +53,13 @@ public class Presenter{
 	      int rVal = c.showOpenDialog(mainView);
 	      
 	      if (rVal == JFileChooser.APPROVE_OPTION) {
-	    	  String file = c.getSelectedFile().getAbsolutePath();
+	    	  String fname = c.getSelectedFile().getAbsolutePath();
 	    	  
-	    	  try {
-				ReleaseHistory rh = RHParser.getReleaseHistory(file);
-				releaseHistories.add(rh);
-				mainView.addRH(rh.getName());
+	    	try {
+	    		ReleaseHistory rh = releaseHistories.get(selectedRH);
+	    		ReportGenerator.saveReport(rh, fname);
 			} catch (Exception e) {
-				infoBox("Σφάλμα", "Το αρχείο δεν μπορεί να διαβαστεί.");
+				infoBox("Error", "Couldn't save report.");
 				e.printStackTrace();
 			}
 	      }
@@ -92,9 +92,21 @@ public class Presenter{
 		lawView.show();
 	}
 	
-	public void createReport(String filename) { 
-		// TODO Auto-generated method
-	 }
+	public void createReport() { 
+		JFileChooser c = new JFileChooser();
+	    int rVal = c.showSaveDialog(mainView);
+	    if (rVal == JFileChooser.APPROVE_OPTION) {
+	    	String file = c.getSelectedFile().getAbsolutePath();  
+	    	try {
+	    		ReleaseHistory rh = RHParser.getReleaseHistory(file);
+				releaseHistories.add(rh);
+				mainView.addRH(rh.getName());
+			} catch (Exception e) {
+				infoBox("Σφάλμα", "Το αρχείο δεν μπορεί να διαβαστεί.");
+				e.printStackTrace();
+			}
+	    }
+	}
 
 	/**
 	 * Law view callback function. Saving evaluation and comment for law.
