@@ -74,14 +74,9 @@ public class Presenter{
 	 * @param lawIndex
 	 */
 	public void evaluateLaw(int lawIndex) {
-		if (releaseHistories.size() == 0) {
-			infoBox("Error", "Please add at least one release history to the list.");
+		if (!hasSelectedRH()) 
 			return;
-		}
-		if (selectedRH < 0) {
-			infoBox("Error", "Please select a system's release history.");
-			return;
-		}
+		
 		setSelectedLaw(lawIndex);
 		
 		lawView.setLawNumber(lawIndex);
@@ -161,6 +156,18 @@ public class Presenter{
 		frmSEMonitor.getContentPane().setBackground(new Color(0, 0, 64));
 		frmSEMonitor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSEMonitor.getContentPane().setLayout(null);
+	}
+	
+	private boolean hasSelectedRH() {
+		if (releaseHistories.size() == 0) {
+			infoBox("Error", "Please add at least one release history to the list.");
+			return false;
+		}
+		if (selectedRH < 0) {
+			infoBox("Error", "Please select a system's release history.");
+			return false;
+		}
+		return true;
 	}
 	
 	/**
