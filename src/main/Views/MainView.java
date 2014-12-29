@@ -87,6 +87,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_8);
 				break;
 			case "createReport":
+				callbackPresenter.createReport();
             default: 
             	Presenter.infoBox("Triggered Action", e.getActionCommand());
 		}
