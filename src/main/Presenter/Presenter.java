@@ -72,11 +72,11 @@ public class Presenter{
 	 */
 	public void evaluateLaw(int lawIndex) {
 		if (releaseHistories.size() == 0) {
-			infoBox("Σφάλμα", "Παρακαλώ προσθέστε τουλάχιστον ένα ιστορικό στην λίστα.");
+			infoBox("Error", "Please add at least one release history to the list.");
 			return;
 		}
 		if (selectedRH < 0) {
-			infoBox("Σφάλμα", "Παρακαλώ επιλέξτε ένα ιστορικό από τη λίστα.");
+			infoBox("Error", "Please select a system's release history.");
 			return;
 		}
 		setSelectedLaw(lawIndex);
@@ -102,7 +102,7 @@ public class Presenter{
 				releaseHistories.add(rh);
 				mainView.addRH(rh.getName());
 			} catch (Exception e) {
-				infoBox("Σφάλμα", "Το αρχείο δεν μπορεί να διαβαστεί.");
+				infoBox("Error", "Couldn't read the file.");
 				e.printStackTrace();
 			}
 	    }

@@ -112,53 +112,53 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		add(MainButtonsPanel);
 		MainButtonsPanel.setLayout(null);
 		
-		JButton btnLaw1 = new JButton("1ος Νόμος");
+		JButton btnLaw1 = new JButton("Law No. 1");
 		btnLaw1.setBounds(36, 46, 112, 29);
 		MainButtonsPanel.add(btnLaw1);
 		btnLaw1.setActionCommand("law1");
 		
-		JButton btnLaw2 = new JButton("2ος Νόμος");
+		JButton btnLaw2 = new JButton("Law No. 2");
 		btnLaw2.setBounds(36, 87, 112, 29);
 		MainButtonsPanel.add(btnLaw2);
 		btnLaw2.setActionCommand("law2");
 		
-		JButton btnLaw3 = new JButton("3ος Νόμος");
+		JButton btnLaw3 = new JButton("Law No. 3");
 		btnLaw3.setBounds(36, 128, 112, 29);
 		MainButtonsPanel.add(btnLaw3);
 		btnLaw3.setActionCommand("law3");
 		
-		JButton btnLaw4 = new JButton("4ος Νόμος");
+		JButton btnLaw4 = new JButton("Law No. 4");
 		btnLaw4.setBounds(36, 169, 112, 29);
 		MainButtonsPanel.add(btnLaw4);
 		btnLaw4.setFocusPainted(false);
 		btnLaw4.setActionCommand("law4");
 		
-		JButton btnLaw5 = new JButton("5ος Νόμος");
+		JButton btnLaw5 = new JButton("Law No. 5");
 		btnLaw5.setBounds(36, 210, 112, 29);
 		MainButtonsPanel.add(btnLaw5);
 		btnLaw5.setActionCommand("law5");
 		
-		JButton btnLaw6 = new JButton("6ος Νόμος");
+		JButton btnLaw6 = new JButton("Law No. 6");
 		btnLaw6.setBounds(36, 251, 112, 29);
 		MainButtonsPanel.add(btnLaw6);
 		btnLaw6.setActionCommand("law6");
 		
-		JButton btnLaw7 = new JButton("7ος Νόμος");
+		JButton btnLaw7 = new JButton("Law No. 7");
 		btnLaw7.setBounds(36, 292, 112, 29);
 		MainButtonsPanel.add(btnLaw7);
 		btnLaw7.setActionCommand("law7");
 		
-		JButton btnLaw8 = new JButton("8ος Νόμος");
+		JButton btnLaw8 = new JButton("Law No. 8");
 		btnLaw8.setBounds(36, 333, 112, 29);
 		btnLaw8.setActionCommand("law8");
 		MainButtonsPanel.add(btnLaw8);
 		
-		JButton btnReport = new JButton("Δημιουργία Αναφοράς");
+		JButton btnReport = new JButton("Create Report");
 		btnReport.setBounds(0, 411, 272, 29);
 		MainButtonsPanel.add(btnReport);
 		btnReport.setActionCommand("createReport");
 		
-		JLabel lblApotimisi = new JLabel("Αποτίμηση Νόμων του Lehman");
+		JLabel lblApotimisi = new JLabel("Evaluation of Lehman's Laws");
 		lblApotimisi.setHorizontalAlignment(SwingConstants.CENTER);
 		lblApotimisi.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblApotimisi.setBounds(0, 0, 272, 34);
@@ -217,14 +217,14 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		SoftwareToolsListScrollPane.setColumnHeaderView(SoftwareToolsList);
 		add(SoftwareToolsListScrollPane);
 
-		JLabel lblSystems = new JLabel("Ιστορικά Συστημ. Λογ.");
+		JLabel lblSystems = new JLabel("Histories of Soft. Systems");
 		lblSystems.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSystems.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		lblSystems.setAlignmentX(0.5f);
 		lblSystems.setBounds(26, 34, 222, 34);
 		add(lblSystems);
 		
-		JButton btnNewSystem = new JButton("Νέο Ιστορικό");
+		JButton btnNewSystem = new JButton("Load new history");
 		btnNewSystem.setFocusPainted(false);
 		btnNewSystem.setActionCommand("newRH");
 		btnNewSystem.setBounds(25, 445, 225, 29);

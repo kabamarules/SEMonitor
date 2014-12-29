@@ -104,7 +104,7 @@ public class LawView extends View implements ActionListener {
 	 */
 	@Override
 	public void redraw() {
-		lblLawName.setText( (lawNumber + 1) + "ος Νόμος");
+		lblLawName.setText( "Law No. " + (lawNumber + 1));
 		txtLawDescription.setText(lawDescriptions[lawNumber]);
 		selectRadioButton(validity);
 		txtUserComments.setText(comment);
@@ -172,15 +172,15 @@ public class LawView extends View implements ActionListener {
 		txtLawDescription.setBounds(349, 69, 252, 206);
 		add(txtLawDescription);
 		
-		JLabel lblLawDescription = new JLabel("Περιγραφή ισχύος του νόμου:");
+		JLabel lblLawDescription = new JLabel("Law description:");
 		lblLawDescription.setBounds(349, 45, 204, 16);
 		add(lblLawDescription);
 		
-		radioBtnLawFalse = new JRadioButton("Δεν ισχύει");
+		radioBtnLawFalse = new JRadioButton("Not valid");
 		radioBtnLawFalse.setBounds(467, 287, 99, 23);
 		add(radioBtnLawFalse);
 		
-		radioBtnLawTrue = new JRadioButton("Ισχύει");
+		radioBtnLawTrue = new JRadioButton("Valid");
 		radioBtnLawTrue.setBounds(359, 287, 107, 23);
 		add(radioBtnLawTrue);
 		
@@ -193,16 +193,16 @@ public class LawView extends View implements ActionListener {
 		txtUserComments.setBounds(348, 348, 253, 105);
 		add(txtUserComments);
 		
-		JLabel lblUserComments = new JLabel("Σχόλια & παρατηρήσεις χρήστη:");
+		JLabel lblUserComments = new JLabel("User comments:");
 		lblUserComments.setBounds(349, 322, 230, 16);
 		add(lblUserComments);
 		
-		JButton btnApotimisi = new JButton("Αποτίμηση Νόμου");
+		JButton btnApotimisi = new JButton("Save evaluation");
 		btnApotimisi.setBounds(349, 465, 142, 29);
 		btnApotimisi.setActionCommand("saveEvaluation");
 		add(btnApotimisi);
 		
-		JButton btnBack = new JButton("Επιστροφή");
+		JButton btnBack = new JButton("Go back");
 		btnBack.setBounds(484, 465, 117, 29);
 		btnBack.setActionCommand("goBack");
 		add(btnBack);
