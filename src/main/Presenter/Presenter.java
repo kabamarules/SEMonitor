@@ -91,6 +91,9 @@ public class Presenter{
 	}
 	
 	public void createReport() { 
+		if (!hasSelectedRH()) 
+			return;
+		
 		JFileChooser c = new JFileChooser();
 		c.setFileSelectionMode(JFileChooser.FILES_ONLY);  
 
