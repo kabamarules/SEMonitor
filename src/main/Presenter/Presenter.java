@@ -50,6 +50,7 @@ public class Presenter{
 	 */
 	public void createNewRH() { 
 		JFileChooser c = new JFileChooser();
+		c.setFileSelectionMode(JFileChooser.FILES_ONLY);  
 	    int rVal = c.showOpenDialog(mainView);
 	      
 	    if (rVal == JFileChooser.APPROVE_OPTION) {
@@ -96,7 +97,10 @@ public class Presenter{
 	
 	public void createReport() { 
 		JFileChooser c = new JFileChooser();
+		c.setFileSelectionMode(JFileChooser.FILES_ONLY);  
+
 	    int rVal = c.showSaveDialog(mainView);
+	    
 	    if (rVal == JFileChooser.APPROVE_OPTION) {
 	    	String fname = c.getSelectedFile().getAbsolutePath();
 	    	
