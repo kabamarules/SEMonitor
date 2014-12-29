@@ -49,20 +49,22 @@ public class Presenter{
 	 * adding a new release history to the list
 	 */
 	public void createNewRH() { 
-	      JFileChooser c = new JFileChooser();
-	      int rVal = c.showOpenDialog(mainView);
+		JFileChooser c = new JFileChooser();
+	    int rVal = c.showOpenDialog(mainView);
 	      
-	      if (rVal == JFileChooser.APPROVE_OPTION) {
-	    	  String fname = c.getSelectedFile().getAbsolutePath();
-	    	  
+	    if (rVal == JFileChooser.APPROVE_OPTION) {
+	    	String fname = c.getSelectedFile().getAbsolutePath();
 	    	try {
-	    		ReleaseHistory rh = releaseHistories.get(selectedRH);
-	    		ReportGenerator.saveReport(rh, fname);
+	    		ReleaseHistory rh = RHParser.getReleaseHistory(fname);
+	    		releaseHistories.add(rh);
+	    		mainView.addRH(rh.getName());
 			} catch (Exception e) {
-				infoBox("Error", "Couldn't save report.");
+				infoBox("Error", "Wrong file format.");
 				e.printStackTrace();
 			}
-	      }
+	    } else {
+			infoBox("Error", "Please choose another file.");
+	    }
 	 }
 
 	/**
@@ -96,15 +98,17 @@ public class Presenter{
 		JFileChooser c = new JFileChooser();
 	    int rVal = c.showSaveDialog(mainView);
 	    if (rVal == JFileChooser.APPROVE_OPTION) {
-	    	String file = c.getSelectedFile().getAbsolutePath();  
+	    	String fname = c.getSelectedFile().getAbsolutePath();
+	    	
 	    	try {
-	    		ReleaseHistory rh = RHParser.getReleaseHistory(file);
-				releaseHistories.add(rh);
-				mainView.addRH(rh.getName());
+	    		ReleaseHistory rh = releaseHistories.get(selectedRH);
+	    		ReportGenerator.saveReport(rh, fname);
 			} catch (Exception e) {
-				infoBox("Error", "Couldn't read the file.");
+				infoBox("Error", "Couldn't save the report.");
 				e.printStackTrace();
 			}
+	    } else {
+			infoBox("Error", "Please choose another file.");
 	    }
 	}
 
