@@ -93,7 +93,7 @@ public class ReportGenerator {
 				+ "<h2>Law 8: Feedback System</h2> "
 				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_8))
 				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_8) + "</p> "
-				+ "<div class='score score-7'>7/8</div> "
+				+ "<div class='score score-7'>"+ rh.getNumberOfValidLaws() + "/8</div> "
 				+ "<pre> Report Generated: " + dateFormat.format(new Date()) + " </pre> "
 				+ "</div> </body> </html>");
 				

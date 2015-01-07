@@ -48,6 +48,17 @@ public class ReleaseHistory {
 	}
 	
 	/**
+	 * Returns the number of laws that are valid 
+	 */
+	public int getNumberOfValidLaws() {
+		int c = 0;
+		for (int i = 0; i < numOfLaws; i++) {
+			if (getLawValidity(i)) c++;
+		}
+		return c;
+	}
+	
+	/**
 	 * Adding a release to the history
 	 * @param id Release Id
 	 * @param date Release Date
