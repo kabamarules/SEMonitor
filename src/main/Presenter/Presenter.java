@@ -123,6 +123,8 @@ public class Presenter{
 	 */
 	public void saveLawEvaluation(Boolean validity, String comment) { 
 		releaseHistories.get(selectedRH).setLawEvaluation(selectedLaw, validity, comment);
+		mainView.setValidities(releaseHistories.get(selectedRH).getLawValidities());
+		mainView.redraw();
 	}
 	
 	/**
