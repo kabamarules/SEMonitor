@@ -101,7 +101,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if (e.getValueIsAdjusting() == false) {
-			callbackPresenter.setSelectedRH(e.getLastIndex());
+			callbackPresenter.setSelectedRH(SoftwareToolsList.getSelectedIndex());
 		}
 	}
 	
