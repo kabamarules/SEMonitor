@@ -37,7 +37,9 @@ public class Presenter{
 	}
 	
 	public void setSelectedRH(int selectedRH) {
-		this.selectedRH = selectedRH; 
+		this.selectedRH = selectedRH;
+		mainView.setValidities(releaseHistories.get(selectedRH).getLawValidities());
+		mainView.redraw();
 	}
 	
 	public void setSelectedLaw(int selectedLaw) { 

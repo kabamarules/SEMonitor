@@ -21,7 +21,7 @@ public class ReleaseHistory {
 	/**
 	 * The total number of Lehman's laws
 	 */
-	private int numOfLaws = 8;
+	private final int numOfLaws = 8;
 	
 	/**
 	 * The name of the software system
@@ -132,6 +132,16 @@ public class ReleaseHistory {
 								laws[ReleaseHistory.LAW_6].getValidity() : 
 								laws[lawNumber].getValidity();
 	 }
+	
+	/**
+	 * Gets the validities of all the laws as an array
+	 */
+	public boolean[] getLawValidities() {
+		boolean[] v = new boolean[numOfLaws];
+		for (int i = 0; i < numOfLaws; i++)
+			v[i] = getLawValidity(i);
+		return v;
+	}
 	
 	/**
 	 * Gets the comment of a specific law 

@@ -26,6 +26,11 @@ import Presenter.Presenter;
 public class MainView extends View implements ActionListener, ListSelectionListener{
 
 	/**
+	 * The total number of Lehman's laws
+	 */
+	private final int numOfLaws = 8;
+	
+	/**
 	 * The list of the Release Histories
 	 */
 	@SuppressWarnings("rawtypes")
@@ -38,6 +43,11 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 	private DefaultListModel rhNames;
 
 	private JCheckBox[] checkBoxes;
+	private boolean[] validities;
+	
+	public void setValidities(boolean[] validities) {
+		this.validities = validities;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public void addRH(String name) { 
@@ -46,16 +56,19 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 
 	@Override
 	public void redraw() {
-		// TODO implement redrawing the ticking boxes
+		for (int i = 0; i < numOfLaws; i++) {
+			checkBoxes[i].setSelected(validities[i]);
+		}
 	} 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public MainView(Presenter callbackPresenter) {
 		super(callbackPresenter);
+		
 		rhNames = new DefaultListModel();
 		SoftwareToolsList = new JList(rhNames);
+		checkBoxes = new JCheckBox[numOfLaws];
 		
-		checkBoxes = new JCheckBox[8];
 		initializeView();
 	}
 	
