@@ -112,7 +112,10 @@ public class ReleaseHistory {
 	 */
 	public void setLawEvaluation(int lawNumber, boolean validity, String comment) throws ArrayIndexOutOfBoundsException {
 		if (lawNumber >=0 && lawNumber < numOfLaws ) {
-			laws[lawNumber].setValidity(validity);
+			// Prohibit the user from setting the validity of the 7th law.
+			// It's calculated by the 2nd and 6th law.
+			if (lawNumber != 7) 
+				laws[lawNumber].setValidity(validity);
 			laws[lawNumber].setComment(comment);;
 		} else {
 			throw new ArrayIndexOutOfBoundsException(lawNumber);
@@ -124,7 +127,10 @@ public class ReleaseHistory {
 	 * @param lawNumber 
 	 */
 	public boolean getLawValidity(int lawNumber) { 
-		return laws[lawNumber].getValidity();
+		// The validity of the 7th law is calculated by the 2nd and 6th law.
+		return lawNumber == 7 ? laws[ReleaseHistory.LAW_2].getValidity() && 
+								laws[ReleaseHistory.LAW_6].getValidity() : 
+								laws[lawNumber].getValidity();
 	 }
 	
 	/**
