@@ -37,6 +37,8 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 	@SuppressWarnings("rawtypes")
 	private DefaultListModel rhNames;
 
+	private JCheckBox[] checkBoxes;
+	
 	@SuppressWarnings("unchecked")
 	public void addRH(String name) { 
 		 rhNames.addElement(name);
@@ -53,6 +55,7 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		rhNames = new DefaultListModel();
 		SoftwareToolsList = new JList(rhNames);
 		
+		checkBoxes = new JCheckBox[8];
 		initializeView();
 	}
 	
@@ -168,45 +171,20 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		MainButtonsPanel.add(lblApotimisi);
 		lblApotimisi.setFont(new Font("Lucida Grande", Font.BOLD, 16));
 		
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(160, 46, 28, 23);
-		MainButtonsPanel.add(checkBox);
-		checkBox.setEnabled(false);
-		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(160, 87, 28, 23);
-		MainButtonsPanel.add(checkBox_1);
-		checkBox_1.setEnabled(false);
-		
-		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setBounds(160, 128, 28, 23);
-		MainButtonsPanel.add(checkBox_2);
-		checkBox_2.setEnabled(false);
-		
-		JCheckBox checkBox_3 = new JCheckBox("");
-		checkBox_3.setBounds(160, 169, 28, 23);
-		MainButtonsPanel.add(checkBox_3);
-		checkBox_3.setEnabled(false);
-		
-		JCheckBox checkBox_4 = new JCheckBox("");
-		checkBox_4.setBounds(160, 210, 28, 23);
-		MainButtonsPanel.add(checkBox_4);
-		checkBox_4.setEnabled(false);
-		
-		JCheckBox checkBox_5 = new JCheckBox("");
-		checkBox_5.setBounds(160, 251, 28, 23);
-		MainButtonsPanel.add(checkBox_5);
-		checkBox_5.setEnabled(false);
-		
-		JCheckBox checkBox_6 = new JCheckBox("");
-		checkBox_6.setBounds(160, 292, 28, 23);
-		MainButtonsPanel.add(checkBox_6);
-		checkBox_6.setEnabled(false);
-		
-		JCheckBox checkBox_7 = new JCheckBox("");
-		checkBox_7.setBounds(160, 333, 28, 23);
-		MainButtonsPanel.add(checkBox_7);
-		checkBox_7.setEnabled(false);
+		for (int i = 0; i < checkBoxes.length; i++) {
+			checkBoxes[i] = new JCheckBox("");
+			MainButtonsPanel.add(checkBoxes[i]);
+			checkBoxes[i].setEnabled(false);
+		}
+
+		checkBoxes[0].setBounds(160, 46, 28, 23);
+		checkBoxes[1].setBounds(160, 87, 28, 23);
+		checkBoxes[2].setBounds(160, 128, 28, 23);
+		checkBoxes[3].setBounds(160, 169, 28, 23);
+		checkBoxes[4].setBounds(160, 210, 28, 23);
+		checkBoxes[5].setBounds(160, 251, 28, 23);
+		checkBoxes[6].setBounds(160, 292, 28, 23);
+		checkBoxes[7].setBounds(160, 333, 28, 23);
 		
 		JScrollPane SoftwareToolsListScrollPane = new JScrollPane();
 		SoftwareToolsListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
