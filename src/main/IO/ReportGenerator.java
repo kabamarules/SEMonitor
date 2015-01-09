@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import Models.LehmanLawsRecord;
 import Models.ReleaseHistory;
 
 public class ReportGenerator {
@@ -68,29 +67,29 @@ public class ReportGenerator {
 				+ "Software Engineering class of the CS department of the University of Ioannina."
 				+ "It was created by Stathis Fotiadis and is available on github.</p>"
 				+ "<h2>Law 1: Continuing Change</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_1))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_1) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_1))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_1) + "</p> "
 				+ "<h2>Law 2: Increasing Complexity</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_2))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_2) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_2))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_2) + "</p> "
 				+ "<h2>Law 3: Self Regulation</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_3))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_3) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_3))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_3) + "</p> "
 				+ "<h2>Law 4:Conservation of Organisational Stability</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_4))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_4) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_4))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_4) + "</p> "
 				+ "<h2>Law 5: Conservation of Familiarity</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_5))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_5) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_5))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_5) + "</p> "
 				+ "<h2>Law 6: Continuing Growth</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_6))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_6) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_6))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_6) + "</p> "
 				+ "<h2>Law 7: Declining Quality</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_7))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_7) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_7))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_7) + "</p> "
 				+ "<h2>Law 8: Feedback System</h2> "
-				+ ReportGenerator.getValidityHeader(rh.getLawValidity(LehmanLawsRecord.LAW_8))
-				+ "<p>" + rh.getLawComment(LehmanLawsRecord.LAW_8) + "</p> "
+				+ ReportGenerator.getValidityHeader(rh.getLawValidity(ReleaseHistory.LAW_8))
+				+ "<p>" + rh.getLawComment(ReleaseHistory.LAW_8) + "</p> "
 				+ "<div class='score score-7'>"+ rh.getNumberOfValidLaws() + "/8</div> "
 				+ "<pre> Report Generated: " + dateFormat.format(new Date()) + " </pre> "
 				+ "<ul> <li><a href='http://www.github.com/sfotiadis/'>My projects on Github</a></li> "

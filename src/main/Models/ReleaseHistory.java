@@ -8,6 +8,21 @@ import java.util.Map;
 
 public class ReleaseHistory {
 
+	// Constants, we don't like magic numbers
+	public final static int LAW_1 = 0;
+	public final static int LAW_2 = 1;
+	public final static int LAW_3 = 2;
+	public final static int LAW_4 = 3;
+	public final static int LAW_5 = 4;
+	public final static int LAW_6 = 5;
+	public final static int LAW_7 = 6;
+	public final static int LAW_8 = 7;
+	
+	/**
+	 * The total number of Lehman's laws
+	 */
+	private int numOfLaws = 8;
+	
 	/**
 	 * The name of the software system
 	 */
@@ -23,11 +38,6 @@ public class ReleaseHistory {
 	 */
 	private LehmanLawsRecord[] laws;
 
-	/**
-	 * The total number of Lehman's laws
-	 */
-	private int numOfLaws = 8;
-	
 	/**
 	 * Constructor
 	 * @param name 

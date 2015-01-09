@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import Models.LehmanLawsRecord;
+import Models.ReleaseHistory;
 import Presenter.Presenter;
 
 @SuppressWarnings("serial")
@@ -66,28 +66,28 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 				callbackPresenter.createNewRH();
 				break;
 			case "law1":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_1);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_1);
 				break;
 			case "law2":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_2);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_2);
 				break;
 			case "law3":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_3);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_3);
 				break;
 			case "law4":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_4);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_4);
 				break;
 			case "law5":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_5);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_5);
 				break;
 			case "law6":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_6);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_6);
 				break;
 			case "law7":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_7);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_7);
 				break;
 			case "law8":
-				callbackPresenter.evaluateLaw(LehmanLawsRecord.LAW_8);
+				callbackPresenter.evaluateLaw(ReleaseHistory.LAW_8);
 				break;
 			case "createReport":
 				callbackPresenter.createReport();

@@ -20,7 +20,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-import Models.LehmanLawsRecord;
 import Models.ReleaseHistory;
 import Models.ReleaseInfo;
 
@@ -36,36 +35,36 @@ public class Grapher {
 		List<JPanel> graphs = new ArrayList<JPanel>();
 		
 		switch (lawNumber) {
-			case LehmanLawsRecord.LAW_1:
+			case ReleaseHistory.LAW_1:
 				graphs.add(barChart(rh.getChangesData(ReleaseInfo.operations), "Operation changes"));
 				graphs.add(barChart(rh.getChangesData(ReleaseInfo.dataStructures), "DS Changes"));
 				graphs.add(barChart(rh.getVersionsPerYearData(), "Versions per year"));
 				break;
-			case LehmanLawsRecord.LAW_2:
+			case ReleaseHistory.LAW_2:
 				graphs.add(lineChart(rh.getComplexityData(ReleaseInfo.operations), "Operations Complexity"));
 				graphs.add(lineChart(rh.getComplexityData(ReleaseInfo.dataStructures), "DS Complexity"));
 				graphs.add(barChart(rh.getMaintenanceActionsData(), "Maintenance actions"));
 				break;
-			case LehmanLawsRecord.LAW_3:
+			case ReleaseHistory.LAW_3:
 				graphs.add(lineChart(rh.getGrowthData(ReleaseInfo.operations), "Operations Growth"));
 				graphs.add(lineChart(rh.getGrowthData(ReleaseInfo.dataStructures), "DS Growth"));
 				break;
-			case LehmanLawsRecord.LAW_4:
+			case ReleaseHistory.LAW_4:
 				graphs.add(lineChart(rh.getWorkRateData(ReleaseInfo.operations), "Operations Work Rate"));
 				graphs.add(lineChart(rh.getWorkRateData(ReleaseInfo.dataStructures), "DS Work Rate"));
 				break;
-			case LehmanLawsRecord.LAW_5:
+			case ReleaseHistory.LAW_5:
 				graphs.add(lineChart(rh.getGrowthData(ReleaseInfo.operations), "Operations Growth"));
 				graphs.add(lineChart(rh.getGrowthData(ReleaseInfo.dataStructures), "DS Growth"));
 				break;
-			case LehmanLawsRecord.LAW_6:
+			case ReleaseHistory.LAW_6:
 				graphs.add(lineChart(rh.getTotalNumberData(ReleaseInfo.operations), "Total operations"));
 				graphs.add(lineChart(rh.getTotalNumberData(ReleaseInfo.dataStructures), "Total DS"));
 				break;
-			case LehmanLawsRecord.LAW_7:
+			case ReleaseHistory.LAW_7:
 				// No graphs
 				break;
-			case LehmanLawsRecord.LAW_8:
+			case ReleaseHistory.LAW_8:
 				graphs.add(lineChart(rh.getTotalNumberData(ReleaseInfo.operations), "Total operations"));
 				graphs.add(lineChart(rh.getTotalEstimatedData(), "Estimated operations"));
 				break;
