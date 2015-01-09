@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextPane;
 
+import Models.ReleaseHistory;
 import Presenter.Presenter;
 
 @SuppressWarnings("serial")
@@ -47,6 +48,7 @@ public class LawView extends View implements ActionListener {
  	private boolean validity;
  	private String comment;
  	
+ 	// TODO Translate to english
 	/**
 	 * A static list containing the explanation of the laws
 	 */
@@ -120,6 +122,15 @@ public class LawView extends View implements ActionListener {
 			graphs.get(i).revalidate();
 			graphs.get(i).repaint();
 		}
+		
+		if (lawNumber == ReleaseHistory.LAW_7) {
+			radioBtnLawTrue.setEnabled(false);
+			radioBtnLawFalse.setEnabled(false);
+		} else {
+			radioBtnLawTrue.setEnabled(true);
+			radioBtnLawFalse.setEnabled(true);
+		}
+		
 		revalidate();
 		repaint();
 	} 
