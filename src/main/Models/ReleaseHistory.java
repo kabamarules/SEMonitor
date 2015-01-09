@@ -114,7 +114,7 @@ public class ReleaseHistory {
 		if (lawNumber >=0 && lawNumber < numOfLaws ) {
 			// Prohibit the user from setting the validity of the 7th law.
 			// It's calculated by the 2nd and 6th law.
-			if (lawNumber != 7) 
+			if (lawNumber != ReleaseHistory.LAW_7) 
 				laws[lawNumber].setValidity(validity);
 			laws[lawNumber].setComment(comment);;
 		} else {
@@ -128,7 +128,7 @@ public class ReleaseHistory {
 	 */
 	public boolean getLawValidity(int lawNumber) { 
 		// The validity of the 7th law is calculated by the 2nd and 6th law.
-		return lawNumber == 7 ? laws[ReleaseHistory.LAW_2].getValidity() && 
+		return lawNumber == ReleaseHistory.LAW_7 ? laws[ReleaseHistory.LAW_2].getValidity() && 
 								laws[ReleaseHistory.LAW_6].getValidity() : 
 								laws[lawNumber].getValidity();
 	 }
