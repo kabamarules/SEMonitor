@@ -26,6 +26,12 @@ import Presenter.Presenter;
 public class MainView extends View implements ActionListener, ListSelectionListener{
 
 	/**
+	 * The list of the Release Histories
+	 */
+	@SuppressWarnings("rawtypes")
+	private JList SoftwareToolsList;
+	
+	/**
 	 * The names list of the loaded software systems data 
 	 */
 	@SuppressWarnings("rawtypes")
@@ -36,19 +42,16 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		 rhNames.addElement(name);
 	}
 
-	public void setLawsValidity(Boolean validities) { 
-		// TODO Auto-generated method
-	 }
-
 	@Override
 	public void redraw() {
-		
+		// TODO implement redrawing the ticking boxes
 	} 
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public MainView(Presenter callbackPresenter) {
 		super(callbackPresenter);
 		rhNames = new DefaultListModel();
+		SoftwareToolsList = new JList(rhNames);
 		
 		initializeView();
 	}
@@ -209,8 +212,6 @@ public class MainView extends View implements ActionListener, ListSelectionListe
 		SoftwareToolsListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		SoftwareToolsListScrollPane.setBounds(26, 74, 222, 365);
 	
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		JList SoftwareToolsList = new JList(rhNames);
 		SoftwareToolsList.setVisibleRowCount(100);
 		SoftwareToolsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
