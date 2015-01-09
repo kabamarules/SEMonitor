@@ -36,8 +36,8 @@ public class Presenter{
 	 	 return releaseHistories; 
 	}
 	
-	public void setSelectedRH(int selectedRH) { 
-		 this.selectedRH = selectedRH; 
+	public void setSelectedRH(int selectedRH) {
+		this.selectedRH = selectedRH; 
 	}
 	
 	public void setSelectedLaw(int selectedLaw) { 
