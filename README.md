@@ -5,6 +5,8 @@ The goal of the project is the development of a tool to be facilitate the assesm
 
 It is a project made for the undergraduate class of Software Engineering of the University of Ioannina - Greece during the fall semester of the academic year 2014 - 2015.
 
+The file [documents/sample input/AmazonMechTurk.txt](https://github.com/sfotiadis/SEMonitor/blob/master/documents/sampe%20input/AmazonMechTurk.txt) can be used as a sample input file for anyone who wants to try the tool.
+
 ## Implementation notes
 
 The implementation followed closely on the design. The changes that were introduced were mainly Java related implementation details. The design principles remained mainly intact. I was happy about that fact because it could be received as a sign of good design. Any comments on that matter are more than welcome.
