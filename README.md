@@ -24,44 +24,44 @@ Also there are included the packet, class and sequence diagrams that where desig
 
 ### Main Menu
 
-![main gui](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/gui%20prototype/prototype-main.png)
+![main gui](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/gui%20prototype/prototype-main.png)
 
 ### Lehman's law evaluation
 
-![laws gui](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/gui%20prototype/prototype-laws.png)
+![laws gui](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/gui%20prototype/prototype-laws.png)
 
 ## Package Diagram
-![packages diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/Packages.png)
+![packages diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/Packages.png)
 
 ## Class Diagrams
 
 ### Models
-![models diagram 1](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/Model1.png)
-![models diagram 2](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/Model2.png)
+![models diagram 1](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/Model1.png)
+![models diagram 2](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/Model2.png)
 
 ### Views
-![views diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/Views.png)
+![views diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/Views.png)
 
 ### Presenter
-![presenter diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/Presenter.png)
+![presenter diagram](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/Presenter.png)
 
 ### IO
 
-![io diagram](https://github.com/kabamarules/SEMonitor/blob/master/design/diagrams/IO.png)
+![io diagram](https://github.com/kabamarules/SEMonitor/blob/master/documents/diagrams/IO.png)
 
 ## Sequence Diagrams
 
 ### New release history
-![sequence diagram 1](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/sd-2.2.1.png)
+![sequence diagram 1](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/sd-2.2.1.png)
 
 ### Select release history
-![sequence diagram 2](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/sd-2.2.2.png)
+![sequence diagram 2](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/sd-2.2.2.png)
 
 ### Return to main menu
-![sequence diagram 3](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/sd-2.2.3.png)
+![sequence diagram 3](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/sd-2.2.3.png)
 
 ### Lehmans' Laws evaluation
-![sequence diagram 4](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/sd-2.2.4-11.png)
+![sequence diagram 4](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/sd-2.2.4-11.png)
 
 ### Create report
-![sequence diagram 4](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/design/diagrams/sd-2.2.12.png)
+![sequence diagram 4](https://raw.githubusercontent.com/kabamarules/SEMonitor/master/documents/diagrams/sd-2.2.12.png)
