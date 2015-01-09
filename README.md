@@ -5,7 +5,7 @@ The goal of the project is the development of a tool to be facilitate the assesm
 
 It is a project made for the undergraduate class of Software Engineering of the University of Ioannina - Greece during the fall semester of the academic year 2014 - 2015.
 
-The file [documents/sample input/AmazonMechTurk.txt](https://github.com/sfotiadis/SEMonitor/blob/master/documents/sampe%20input/AmazonMechTurk.txt) can be used as a sample input file for anyone who wants to try the tool.
+For trying out the tool you can use [documents/sample input/AmazonMechTurk.txt](https://github.com/sfotiadis/SEMonitor/blob/master/documents/sampe%20input/AmazonMechTurk.txt) as a sample input.
 
 ## Implementation notes
 
@@ -18,7 +18,7 @@ The final gui looks like that:
 ![main gui](https://raw.githubusercontent.com/sfotiadis/SEMonitor/master/documents/gui%20final/final_gui_1.png)
 ![law gui](https://raw.githubusercontent.com/sfotiadis/SEMonitor/master/documents/gui%20final/final_gui_2.png)
 
-The create report looks like that:
+The created report looks something like that:
 ![report ](https://raw.githubusercontent.com/sfotiadis/SEMonitor/master/documents/sample%20output/report-snapshot.png)
 
 The report template was derived from [bricemason's previous work](https://github.com/bricemason/am-i-sencha-touch-ready).
