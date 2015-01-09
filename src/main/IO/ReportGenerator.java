@@ -12,6 +12,7 @@ import Models.ReleaseHistory;
 public class ReportGenerator {
 
 	// TODO Put the template in a file and use regex to substitute variables 
+	// TODO Spit the data graphs as jpegs and include them on the template
 	/**
 	 * 
 	 * @param rh 
